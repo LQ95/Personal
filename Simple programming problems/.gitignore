@@ -1,0 +1,4 @@
+#Unneeded files
+*.o
+*.exe
+*.bat
