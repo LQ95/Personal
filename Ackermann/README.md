@@ -1,2 +1,2 @@
 # Personal/Ackermann
-An incomplete implementation of Ackermann's fucntion in C 
+An incomplete implementation of Ackermann's function in C 
