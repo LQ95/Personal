@@ -1,2 +1,2 @@
-# Personal
-This is simply the place I'll put my personal projects in from time to time
+# Personal/Ackermann
+This is an impementation of Ackermann's function in c
