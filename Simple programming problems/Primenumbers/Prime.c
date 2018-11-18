@@ -8,22 +8,23 @@ void prime()
 	primevector=malloc(sizeof(ListNode));
 	prime=2;
 	primevector->info=2;
+	primevector->next=NULL;
 	notprime=0;
 	printf("%llu\n",prime);
-	while(prime<LONG_MAX)
+	while(prime<UINT_MAX)
 	{
 		prime++;
 		tmp=primevector;
-		while(tmp->next==NULL && notprime == 0)
+		while(tmp!=NULL && notprime == 0)
 			{
-			if(prime%primevector->info == 0)
+			if(prime%tmp->info == 0)
 			notprime=1;
 			tmp=tmp->next;
 			}
 		if(notprime==0)
 			{
 				printf("%llu\n",prime);
-				add(primevector,prime);
+				primevector=add(primevector,prime);
 			}
 		else notprime =0;
 	}

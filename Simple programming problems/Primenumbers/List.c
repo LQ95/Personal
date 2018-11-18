@@ -7,7 +7,9 @@ LongList add(LongList L,unsigned long long el)
 		{
 			tmp=tmp->next;
 		}
-		tmp->next=malloc(sizeof(ListNode));
-		tmp->next->info=el;
+	
+	tmp->next=malloc(sizeof(ListNode));
+	tmp->next->info=el;
+	tmp->next->next=NULL;
 	return L;
 }
