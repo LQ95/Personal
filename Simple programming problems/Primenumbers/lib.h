@@ -3,6 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
-#include <sys/types.h>
+#include "longlist.h"
 void Program(); 
 #endif
