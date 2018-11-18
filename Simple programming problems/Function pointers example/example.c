@@ -8,3 +8,8 @@ void on_all(int *(fun)(int),List L)
 		tmp->info=fun(tmp->info);
 	}
 }
+
+int perfsquare(int num)
+{
+	return num*num;
+}
