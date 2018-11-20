@@ -57,10 +57,11 @@ IntArray insert(IntArray i,int el)
 	return i;
 }
 
-IntArray elim(int el,IntArray i)
+IntArray elim(int el,IntArray i,int ind)
 {
 	int index;
-	index=search(i,el);
+	if(ind<0)index=search(i,el);
+	else index=ind;
 	if(index>-1)
 	{
 		while(index<i.size)
