@@ -1,5 +1,5 @@
 #include "lib.h"
-void Digits()
+intList Digits()
 {
 	int num,tmp;
 	IntList list;
@@ -13,9 +13,11 @@ void Digits()
 		tmp=tmp/10;
 	}
 	list=addHead(list,tmp);
-	Print(list);
+	return list;
 }
 void Program()
 {
-	Digits();
+	IntList list
+	list=Digits();
+	Print(list);
 }
