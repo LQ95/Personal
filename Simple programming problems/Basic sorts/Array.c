@@ -10,11 +10,41 @@ int empty(IntArray i)
 	return (i.size == 0);
 }
 
+int search(IntArray i,int el)
+{
+	int index,found;
+	index=found=0;
+	while(index<i.size && found==0)
+		{
+			if(i.array[index]==el)
+			found=1;;
+			index++;
+		}
+	if (found=1) return index-1;
+	else return -1;
+}
+
 IntArray init()
 {
 	IntArray I;
 	I.size=0;
 	return I;
+}
+
+IntArray randomArray(int size)
+{
+	IntArray i;
+	srand(time(NULL));
+	int index=0;
+	if(size<1)
+		size=rand()%150;
+	i.size=size;
+	while(index<size)
+	{
+		i.array[index]=rand()%200;
+		index++;
+	}
+	return i;
 }
 
 IntArray insert(IntArray i,int el)
@@ -66,16 +96,3 @@ int min(IntArray i,int subindex)
 	return min;
 }
 
-int search(IntArray i,int el)
-{
-	int index,found;
-	index=found=0;
-	while(index<i.size && found==0)
-		{
-			if(i.array[index]==el)
-			found=1;;
-			index++;
-		}
-	if (found=1) return index-1;
-	else return -1;
-}
