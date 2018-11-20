@@ -15,7 +15,7 @@ void prime()
 	{
 		prime++;
 		tmp=primevector;
-		while(tmp!=NULL && notprime == 0)
+		while(tmp!=NULL && notprime == 0 &&((tmp->info)<(prime/2+1)))
 			{
 			if(prime%tmp->info == 0)
 			notprime=1;
