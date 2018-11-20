@@ -1,6 +1,7 @@
 #ifndef SortsH
 #define SortsH
-void SelectionSort();
+#include "intarray.h"
+IntArray SelectionSort();
 void InsertionSort();
 void MergeSort();
 void QuickSort();
