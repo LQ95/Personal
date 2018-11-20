@@ -1,4 +1,5 @@
 #include "Sortlib.h"
+#include "lib.h"
 //Insert your static array structure here if you don't like this one
 IntArray SelectionSort(IntArray i)
 {
@@ -15,7 +16,7 @@ IntArray SelectionSort(IntArray i)
 
 IntArray InsertionSort(IntArray i)
 {
-	int index,tmp;
+	int index,tmp,index2;
 	index=0;
 	while(index<i.size)
 	{
@@ -42,6 +43,10 @@ void QuickSort()
 }
 
 void StoogeSort()
+{
+	
+}
+void Program()
 {
 	
 }
