@@ -20,12 +20,13 @@ IntArray InsertionSort(IntArray i)
 	index=0;
 	while(index<i.size)
 	{
-		tmp=i.array[index];
+		tmp=index;
 		index2=index-1;
-		while(index2>-1 && i.array[index2]>i.array[index])
+		while(index2>-1 && i.array[index2]>i.array[tmp])
 			{
-			i=swap(i,index,index2);
+			i=swap(i,index2,tmp);
 			index2--;
+			tmp--;
 			}
 		index++;
 	}
