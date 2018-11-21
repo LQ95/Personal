@@ -8,7 +8,7 @@ IntArray SelectionSort(IntArray i)
 	while(index<i.size)
 		{
 			index2=min(i,index);
-			swap(i,index2,index);
+			i=swap(i,index2,index);
 			index++;
 		}
 	return i;
@@ -24,7 +24,7 @@ IntArray InsertionSort(IntArray i)
 		index2=index-1;
 		while(index2>-1 && i.array[index2]>i.array[index])
 			{
-			swap(i,index,index2);
+			i=swap(i,index,index2);
 			index2--;
 			}
 		index++;
@@ -48,5 +48,14 @@ void StoogeSort()
 }
 void Program()
 {
-	
+	IntArray i,l;
+	i=randomArray(-1);
+	ArrayPrint(i);
+	i=SelectionSort(i);
+	ArrayPrint(i);
+	sleep(1);
+	l=randomArray(-1);
+	ArrayPrint(l);
+	l=InsertionSort(l);
+	ArrayPrint(l);
 }

@@ -12,7 +12,8 @@ IntArray init();
 IntArray randomArray(int size);
 IntArray elim(int el,IntArray i,int ind);
 IntArray insert(IntArray i,int el);
-void swap(IntArray i,int from,int to);
+IntArray swap(IntArray i,int from,int to);
 int min(IntArray i,int subindex);
 int search(IntArray i,int el);
+void ArrayPrint(IntArray i);
 #endif

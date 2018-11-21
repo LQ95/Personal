@@ -37,7 +37,7 @@ IntArray randomArray(int size)
 	srand(time(NULL));
 	int index=0;
 	if(size<1)
-		size=rand()%150;
+		size=rand()%15;
 	i.size=size;
 	while(index<size)
 	{
@@ -73,27 +73,44 @@ IntArray elim(int el,IntArray i,int ind)
 	}
 }
 
-void swap(IntArray i,int from,int to)
+IntArray swap(IntArray i,int from,int to)
 {
 	int tmp;
 	if((from<i.size) && (to<i.size) && (from!=to))
 	{
 		tmp=i.array[to];
 		i.array[to]=i.array[from];
-		i.array[from]=i.array[to];
+		i.array[from]=tmp;
 	}
+return i;
 }
 
+//returns WHERE the minimum is found
+//can search a subsystem of the array
 int min(IntArray i,int subindex)
 {
-	int min;
+	int min,found;
+	found=subindex;
 	min=i.array[subindex];
 	while(subindex<i.size)
 		{
 			if(i.array[subindex]<min)
+			{
 				min=i.array[subindex];
+				found=subindex;
+			}
 			subindex++;
 		}
-	return min;
+	return found;
 }
 
+void ArrayPrint(IntArray i)
+{
+	int index=0;
+	printf("\n");
+	while(index<i.size)
+	{
+		printf("%d ",i.array[index]);
+		index++;
+	}
+}
