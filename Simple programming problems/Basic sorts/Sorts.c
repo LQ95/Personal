@@ -32,10 +32,16 @@ IntArray InsertionSort(IntArray i)
 	}
  return i;
 }
-
-void MergeSort()
+IntArray Merge()
 {
 	
+}
+IntArray MergeSort(IntArray i,int start,int end)
+{
+	i=MergeSort(i,start,end/2);
+	i=MergeSort(i,(end/2)+1,end);
+	i=Merge(i,start,end/2,end);
+	return i;
 }
 
 void QuickSort()

@@ -4,5 +4,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "Sortlib.h"
+#include "intlist.h"
 void Program(); 
 #endif
