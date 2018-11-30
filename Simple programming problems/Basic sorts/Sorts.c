@@ -40,9 +40,9 @@ IntArray Merge(IntArray i,int start,int center,int end)
 	{
 		if(i.array[j]>i.array[z])
 		{
-			i=swap(i,j,z)
+			i=swap(i,j,z);
 		}
-		i++;
+		z++;
 		j++;
 	}
 	return i;
@@ -64,6 +64,7 @@ void StoogeSort()
 {
 	
 }
+
 void Program()
 {
 	IntArray i,l;
@@ -75,5 +76,10 @@ void Program()
 	l=randomArray(-1);
 	ArrayPrint(l);
 	l=InsertionSort(l);
+	ArrayPrint(l);
+	sleep(1);
+	l=randomArray(-1);
+	ArrayPrint(l);
+	l=MergeSort(l,0,l.size-1);
 	ArrayPrint(l);
 }
