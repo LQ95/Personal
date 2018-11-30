@@ -36,22 +36,29 @@ IntArray Merge(IntArray i,int start,int center,int end)
 {
 	int j=start;
 	int z=center;
+    IntArray temp;
+	temp=init();
+	temp.size=end-start;
 	while(j<center && z<end)
 	{
 		if(i.array[j]>i.array[z])
 		{
 			i=swap(i,j,z);
+			j++;
 		}
-		z++;
-		j++;
+		else z++;
+		
 	}
 	return i;
 }
 IntArray MergeSort(IntArray i,int start,int end)
 {
+	if(start<end)
+	{
 	i=MergeSort(i,start,end/2);
 	i=MergeSort(i,(end/2)+1,end);
 	i=Merge(i,start,end/2,end);
+	}
 	return i;
 }
 
