@@ -32,9 +32,20 @@ IntArray InsertionSort(IntArray i)
 	}
  return i;
 }
-IntArray Merge()
+IntArray Merge(IntArray i,int start,int center,int end)
 {
-	
+	int j=start;
+	int z=center;
+	while(j<center && z<end)
+	{
+		if(i.array[j]>i.array[z])
+		{
+			i=swap(i,j,z)
+		}
+		i++;
+		j++;
+	}
+	return i;
 }
 IntArray MergeSort(IntArray i,int start,int end)
 {
