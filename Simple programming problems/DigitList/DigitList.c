@@ -17,7 +17,7 @@ intList Digits()
 }
 void Program()
 {
-	IntList list
+	IntList list;
 	list=Digits();
 	Print(list);
 }
