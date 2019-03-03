@@ -7,7 +7,8 @@
 #include <sys/types.h>
 #include <limits.h>
 #include <stdio.h>
-
+#define lock pthread_mutex_lock
+#define unlock pthread_mutex_unlock
 void *thread_func(void *arg);
 
 typedef struct N
