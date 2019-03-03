@@ -31,4 +31,4 @@ void print(list L);
 void freeList(list L);
 
 
-void ListManipulation(list L);
+void ListManipulation(shared S);
