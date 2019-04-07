@@ -3,13 +3,15 @@
 #include "ack.h"
 int main()
 {
+	FILE *oldout,*new;
+	oldout=stdout;
 	unsigned long long res,x,y;
 	count=0;
 	printf("please input two numbers for the two argument version of Ackermann's function:\n");
 	scanf("%llu",&x);
-	while(x>4)
+	while(x>3)
 	{
-		printf("uh,no.\n");
+		printf("uh,no.");
 		fflush(stdin);
 		scanf("%llu",&x);
 	}
