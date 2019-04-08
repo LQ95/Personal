@@ -29,7 +29,7 @@ class MaxBox <T> {
 		{
 			return Content;
 		}
-	public void insert(T element) throws UnsupportedDataTypeException //sostituisce se ciò che al momento è contenuto risulta minore dell'elemento inserito
+	public void insert(T element) throws UnsupportedDataTypeException //Substitutes the element within if it's less than what is passed
 		{
 			if (this.Content == null)
 				this.Content=element;
@@ -45,7 +45,7 @@ class MaxBox <T> {
 					this.Content=element;
 					return;
 				}
-			else throw new UnsupportedDataTypeException("inserito con un tipo di dato non comparabile ");
+			else throw new UnsupportedDataTypeException("Uncompatible data type inserted ");
 		}
 
 	public MaxBox()
@@ -57,7 +57,7 @@ class MaxBox <T> {
 		{
 			if (content instanceof Comparable)	
 				this.Content=content;
-			else throw new UnsupportedDataTypeException("inserito con un tipo di dato non comparabile nel costruttore");
+			else throw new UnsupportedDataTypeException("Uncompatible data type inserted ");
 		}
 			
 	public MaxBox(Comparator<T> Comp,T content)
