@@ -1,4 +1,2 @@
 #Unneeded files
-*.o
-*.exe
-*.bat
+*.class
