@@ -5,11 +5,11 @@ import javax.swing.*;
 public class FileRenamer{
 	public static void main(String[] args)
 	{
-		
+
 	}
 }
 
-class Implementation{
+class Implementation {
 	public void rename(){
 	 //retrieve current working directory
 		File WorkingDir= new File(System.getProperty("user.dir"));
