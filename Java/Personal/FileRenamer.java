@@ -1,24 +1,32 @@
 //takes eevery file in the directory and renames it in order,with added filenames
 //has a basic UI too
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import java.io.File;
 public class FileRenamer{
+	private static Implementation Ren;
 	public static void main(String[] args)
 	{
-		JFrame Window1=new JFrame();
+		Ren= new Implementation();
+		JFrame Window1=new JFrame("A little silly Mass File Renamer");
+		JButton Confirm=new JButton("Confirm");
 		Window1.setSize(640,480);
 		Window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Window1.setVisible(true);
+		Confirm.addActionListener(new ActionListener(){
+		public void actionPerformed(ActionEvent e)
+				{
+					Ren.rename();
+				}
+			}
+		);
+		Container windowContainer=Window1.getContentPane();
+		windowContainer.setLayout(new GridLayout(2,2));
+		windowContainer.add(Confirm);
 	}
 	
-	class LocalActionListener implements ActionListener
-	{
-		void actionPerformed(ActionEvent e)
-		{
-			
-		}
-	}
+
 }
 
 class Implementation {
