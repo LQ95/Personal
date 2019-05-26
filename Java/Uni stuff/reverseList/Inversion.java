@@ -33,7 +33,6 @@ public class Inversion
 	
 	static <T> void  PrintList(List<T> L)
 	{
-		Iterator<T> i=L.iterator();
 		for(T element:L)
 			{
 			System.out.println(element);
