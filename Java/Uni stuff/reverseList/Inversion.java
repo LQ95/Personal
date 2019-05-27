@@ -43,6 +43,17 @@ public class Inversion
 
 class Inverter
 {
+		<T> List<T> reverseListInPlace(List<T> L)
+		{
+		T temp;
+		int size=L.size();
+		for(int j=0;j<size;j++)
+			{
+				temp=L.remove(j); //remove from current position and add to head
+				L.add(0,temp);
+			}
+		return L;
+		}
 		<T> List<T> reverseList(List<T> L)
 		{
 		T temp;
