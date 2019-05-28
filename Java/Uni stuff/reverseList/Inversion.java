@@ -43,28 +43,33 @@ public class Inversion
 
 class Inverter
 {
-		<T> List<T> reverseListInPlace(List<T> L)
-		{
+	
+		<T> List<T> reverseList(List<T> L){
 		T temp;
 		int size=L.size();
-		for(int j=0;j<size;j++)
+		if(L instanceof RandomAccess)
 			{
-				temp=L.remove(j); //remove from current position and add to head
-				L.add(0,temp);
+				for(int j=0;j<size;j++)//ArrayList
+					{
+						temp=L.remove(j); //remove from current position and add to head
+						L.add(0,temp);
+					}
+			return L;
 			}
-		return L;
-		}
-		<T> List<T> reverseList(List<T> L)
-		{
-		T temp;
-		int size=L.size();
-		for(int j=0;j<size;j++)
+		else
 			{
-				temp=L.remove(j); //remove from current position and add to head
-				L.add(0,temp);
+			LinkedList<T> L1=(LinkedList<T>)L;//LinkedList
+			Iterator<T> I1=L1.iterator();
+			LinkedList<T> L2=new LinkedList<T>();
+			for(int j=0;j<size;j++)
+				{
+					temp=I1.next(); //remove from current position and add to head
+					L2.addFirst(temp);
+				}
+			return L2;
 			}
-		return L;
 		}
+
 }
 /*Il metodo reverseList accetta una lista e restituisce una nuova lista, che contiene gli stessi elementi
 della prima, ma in ordine inverso.*/
