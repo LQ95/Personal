@@ -1,0 +1,77 @@
+CREATE TABLE EventoStorico
+( Nome CHAR(60),
+  Data DATE,
+  CONSTRAINT pk1 PRIMARY KEY (Nome)
+);
+
+CREATE TABLE PeriodoStorico
+( Estremo1 CHAR(60),
+  Estremo2 CHAR(60),
+  Offset NUMBER(4),
+  Name CHAR(30),
+  Datainiz DATE,
+  DataFine DATE,
+  Descriz CHAR(500),
+  CONSTRAINT pk2 PRIMARY KEY (Name),
+  CONSTRAINT fk1 FOREIGN KEY (Estremo1) REFERENCES EventoStorico(Nome) ON DELETE CASCADE,
+  CONSTRAINT fk2 FOREIGN KEY (Estremo2) REFERENCES EventoStorico(Nome) ON DELETE CASCADE
+);  
+    
+CREATE TABLE PersonaggioStorico
+   ( Nome CHAR(20) NOT NULL,
+     DataN DATE,
+     DataM DATE,
+     ID NUMBER(6),   
+     CONSTRAINT pk3 PRIMARY KEY (ID)
+    );
+
+    
+CREATE TABLE Coinvolgimento
+  ( Evento CHAR(60)NOT NULL,
+    IDPers NUMBER(6)NOT NULL,  
+    Nome CHAR(20),
+    CONSTRAINT pk4 PRIMARY KEY (Evento,IDPers),
+    CONSTRAINT fk3 FOREIGN KEY (Evento) REFERENCES EventoStorico(Nome) ON DELETE CASCADE,
+    CONSTRAINT fk4 FOREIGN KEY (IDPers) REFERENCES PersonaggioStorico(ID) ON DELETE CASCADE
+    );
+
+    
+CREATE TABLE Cronologia
+  ( Segue CHAR(60)NOT NULL,
+    Precede CHAR(60)NOT NULL,
+    CronoID NUMBER(9),
+    CONSTRAINT pk5 PRIMARY KEY (CronoID),
+    CONSTRAINT fk5 FOREIGN KEY (Precede) REFERENCES EventoStorico(Nome) ON DELETE CASCADE,
+    CONSTRAINT fk6 FOREIGN KEY (Segue) REFERENCES EventoStorico(Nome) ON DELETE CASCADE
+    );
+
+    
+CREATE TABLE Attributo
+  ( Nome CHAR(25) NOT NULL,
+    Valore CHAR(400) NOT NULL,
+    Tipo CHAR(4)NOT NULL,
+    AttID NUMBER(5),
+    CONSTRAINT pk6 PRIMARY KEY (AttID)
+    );
+    
+CREATE TABLE AttInClasse
+  ( AttID NUMBER(5)NOT NULL,
+    PersID NUMBER(6),
+    EventId CHAR(60),
+    AssID CHAR(4),
+    CONSTRAINT pk7 PRIMARY KEY (AssID),
+    CONSTRAINT fk7 FOREIGN KEY (EventID) REFERENCES EventoStorico(Nome) ON DELETE CASCADE,
+    CONSTRAINT fk8 FOREIGN KEY (PersID) REFERENCES PersonaggioStorico(ID) ON DELETE CASCADE,
+    CONSTRAINT fk9 FOREIGN KEY (AttID) REFERENCES Attributo(AttID) ON DELETE CASCADE
+    );
+
+    
+CREATE TABLE Localizzazione
+  ( PersID NUMBER(6),
+    NomeE CHAR(60),
+    NomePeriodo CHAR(30)NOT NULL,
+    CONSTRAINT pk8 PRIMARY KEY(NomeE,PersID),
+    CONSTRAINT fk10 FOREIGN KEY (NomeE) REFERENCES EventoStorico(Nome) ON DELETE CASCADE,
+    CONSTRAINT fk11 FOREIGN KEY (PersID) REFERENCES PersonaggioStorico(ID) ON DELETE CASCADE
+ );
+
