@@ -9,7 +9,7 @@ package eventi.storici.java;
  import java.lang.String;
 /**
  *
- * @author Lorenzo Quaranta
+ * @author LQ95
  */
 public class EventiStoriciJava {
 
