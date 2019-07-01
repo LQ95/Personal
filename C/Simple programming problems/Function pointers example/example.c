@@ -13,3 +13,10 @@ int perfsquare(int num)
 {
 	return num*num;
 }
+
+int main()
+{
+	List L=randomList();
+	on_all(perfsquare,L);
+	return 0;
+}
