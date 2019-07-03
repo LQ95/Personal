@@ -15,73 +15,58 @@ public class BinRelTest
 }
 class BinRel<T>
 {
-	private int currentNextKey;
-	private class Pair<T>{
-		private T elem1;
-		private T elem2;
-		Pair(T el1,T el2)
-		{
-			this.elem1=el1;
-			this.elem2=el2;
-		}
-		
-		T getFirst()
-		{
-			return this.elem1;
-		}
-		
-		T getSecond()
-		{
-			return this.elem2;
-		}
-		
-		public boolean equals(Object o)
-		{
-			if(o instanceof Pair)
-				{
-					Pair<T> Other=(Pair<T>)o;
-					return this.elem1.equals(Other.elem1) && elem2.equals(Other.elem2);
-				}
-			else return false;
-		}
-		public int hashCode()
-		{
-			return elem1.hashCode()^(elem2.hashCode()*2);
-		}
-	};
-	
-	private HashMap<Integer,Pair<T>> Pairs;
-	
+	private HashMap<T,HashSet<T>> pairs;
+
+        // Ugualmente inefficiente, ma più semplice:
+        // private List<Pair<T>> Pairs;
+
+        // Più efficiente:
+        // private Map<T,Set<T>> pairs;
+        // add diventa costante
+        // isSymmetric diventa lineare
+        // areRelated diventa costante
+	//TODO finisci la nuova implmentazione
 	public void addPair(T el1,T el2)
 	{
-		Pair<T> P=new Pair<T>(el1,el2);
-		this.Pairs.put(new Integer(currentNextKey),P );
-		currentNextKey++;
+		HashSet<T> LocalSet;
+		if (this.pairs.containsKey(el1))
+		LocalSet=pairs.get(el1);
+		else LocalSet=new HashSet<T>();
+		LocalSet.add(el2);
+		this.pairs.put(el1,LocalSet);
 	}
 	
-	public boolean areRelated(T el1,T el2)
+	public boolean areRelated(T el1,T el2) // costante? 
 	{
-		Pair<T> P=new Pair<T>(el1,el2);
-		return this.Pairs.containsValue(P);
-	}
-	
-	public boolean isSymmetric()
-	{
-		T element1,element2;
-		for(Pair<T> P:Pairs.values())
+		boolean result=false;
+		HashSet<T> LocalSet;
+		if (this.pairs.containsKey(el1))
 		{
-		element1=P.getFirst();
-		element2=P.getSecond();
-		 if( (areRelated(element1,element2) && areRelated(element2,element1))!=true )
-		return false;	 
+			LocalSet=pairs.get(el1);
+			return LocalSet.contains(el2);
 		}
-		return true;
+		return result;
 	}
 	
-	public BinRel()
+	public boolean isSymmetric() // lineare O(n)?
 	{
-		currentNextKey=0;
-		this.Pairs=new HashMap<Integer,Pair<T>>();
+		T element1;
+		HashSet<T> element2;
+		for(T key:pairs.keySet())
+		{
+			element1=key;
+			element2=pairs.get(key);
+			for(T element:element2)
+				{
+				if( (areRelated(element,element1))!=true )
+				return false;	 
+				}
+			return true;
+		}
+	return false;	 
+	}
+	public BinRel(){
+		this.pairs=new HashMap<T,HashSet<T>>();
 	}
 }
 
