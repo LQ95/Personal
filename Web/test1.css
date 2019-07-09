@@ -27,7 +27,40 @@ p.gothic{color: #302E2D;font-family:League Gothic;font-size:30px;margin-left: 20
       position: relative;
       left:85%;
       overflow:scroll;
+	  animation-duration: 3s;
+	  animation-name: move;
+      animation-iteration-count: infinite;
+      transform-origin:0% 0%;
+      animation-timing-function: linear;
       }
+
+@keyframes move
+{
+	10%{
+		top:-10px;
+		transform: rotate(20deg);
+	}
+	30%{
+		top:-360px;
+		transform: rotate(70deg);
+	}
+	50%{
+		top:-180px;
+		transform: rotate(120deg);
+	}
+	70%{
+		top:-100px;
+		transform: rotate(180deg);
+	}
+	90%{
+		top:-10px;
+		transform: rotate(270deg);
+	}
+	100%{
+		top:0px;
+		transform: rotate(360deg);
+	}
+}
 .boxright{
       color: white;font-family:League Gothic;font-size:30px;
       text-align:left;
