@@ -21,7 +21,7 @@ function Display2(){
 																}
 function Musica(){
 var snd= document.getElementsByClassName("suono");
-var.play();
+snd.play();
 
 
 }
