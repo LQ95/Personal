@@ -1,3 +1,5 @@
+#include <iostream.h>
+#include "list.h"
 void on_all(int *(fun)(int),List L)
 {
 	List tmp;
