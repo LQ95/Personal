@@ -1,13 +1,12 @@
-#include <iostream.h>
-#include "list.h"
-void on_all(int *(fun)(int),List L)
+#include "intList.h"
+void on_all(int (*fun)(int),IntList L)
 {
-	List tmp;
+	IntList tmp;
 	tmp=L;
 	while(tmp!=NULL)
 	{
-		tmp=tmp->next;
 		tmp->info=fun(tmp->info);
+		tmp=tmp->next;
 	}
 }
 
@@ -18,7 +17,9 @@ int perfsquare(int num)
 
 int main()
 {
-	List L=randomList();
+	IntList L=randomList(11);
+	Print(L);
 	on_all(perfsquare,L);
+	Print(L);
 	return 0;
 }

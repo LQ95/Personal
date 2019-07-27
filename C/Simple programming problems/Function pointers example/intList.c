@@ -7,7 +7,17 @@ IntList create(int el)
 	L->next=NULL;
 	return L;
 }
-
+IntList randomList(int n){
+	srand(time(NULL));
+	IntList L=create(rand()%4543);
+	int i;
+	int num=n-1;
+	for(i=0;i<num;i++)
+	{
+		add(L,rand()%4543);
+	}
+	return L;
+}
 IntList add(IntList L,int el)
 {
 	if(L!=NULL)
@@ -44,6 +54,7 @@ void Print(IntList L)
 {
 	IntList tmp;
 	tmp=L;
+	printf("\n ");
 	while(tmp!=NULL)
 		{
 			printf("%d ",tmp->info);
