@@ -2,7 +2,8 @@
 #include <stdlib.h>
 typedef struct N
 {
-	struct N *next;
+	struct N *left;
+	struct N *right;
 	void *info;
 }Node;
 

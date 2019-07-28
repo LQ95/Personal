@@ -6,4 +6,5 @@ IntArray  InsertionSort(IntArray i);
 IntArray MergeSort(IntArray i,int start,int end);
 void QuickSort();
 void StoogeSort();
+void HeapSort();
 #endif

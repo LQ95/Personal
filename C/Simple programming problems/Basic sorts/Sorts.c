@@ -32,6 +32,7 @@ IntArray InsertionSort(IntArray i)
 	}
  return i;
 }
+
 IntArray Merge(IntArray i,int start,int center,int end)
 {
 	int j=start;
@@ -72,6 +73,10 @@ void StoogeSort()
 	
 }
 
+void HeapSort()
+{
+	
+}
 void Program()
 {
 	IntArray i,l;
