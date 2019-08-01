@@ -36,29 +36,53 @@ IntArray InsertionSort(IntArray i)
 IntArray Merge(IntArray i,int start,int center,int end)
 {
 	int j=start;
-	int z=center;
+	int z=center+1;
+	int index=0;
+	int index2;
     IntArray temp;
 	temp=init();
-	temp.size=end-start;
-	while(j<center && z<end)
+	temp.size=(end-start)+1;
+	while(j<=center && z<=end)//while neither of the arrays are finished,sort
 	{
-		if(i.array[j]>i.array[z])
+		if(i.array[j]<i.array[z])
 		{
-			i=swap(i,j,z);
+			temp.array[index]=i.array[j];
 			j++;
+			index++;
 		}
-		else z++;
+		else{
+			temp.array[index]=i.array[z];
+			z++;
+			index++;
+			}
 		
 	}
+	//copy the elements in the longer array
+	while(j<=center)
+		{
+			temp.array[index]=i.array[j];
+			j++;
+			index++;
+		}
+	while(z<=end)
+		{
+			temp.array[index]=i.array[z];
+			z++;
+			index++;		
+		}
+	for(index2=0;index2<index;index2++)
+		{
+			i.array[start+index2]=temp.array[index2];
+		}
 	return i;
 }
 IntArray MergeSort(IntArray i,int start,int end)
 {
 	if(start<end)
 	{
-	i=MergeSort(i,start,end/2);
-	i=MergeSort(i,(end/2)+1,end);
-	i=Merge(i,start,end/2,end);
+	i=MergeSort(i,start,(start+end)/2);
+	i=MergeSort(i,((start+end)/2)+1,end);
+	i=Merge(i,start,(start+end)/2,end);
 	}
 	return i;
 }
