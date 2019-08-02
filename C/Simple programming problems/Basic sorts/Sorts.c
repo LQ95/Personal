@@ -33,6 +33,7 @@ IntArray InsertionSort(IntArray i)
  return i;
 }
 
+//Mergesort
 IntArray Merge(IntArray i,int start,int center,int end)
 {
 	int j=start;
@@ -41,8 +42,8 @@ IntArray Merge(IntArray i,int start,int center,int end)
 	int index2;
     IntArray temp;
 	temp=init();
-	temp.size=(end-start)+1;
-	while(j<=center && z<=end)//while neither of the arrays are finished,sort
+	temp.size=(end-start);
+	while(j<=center && z<end)//while neither of the arrays are finished,sort
 	{
 		if(i.array[j]<i.array[z])
 		{
@@ -64,7 +65,7 @@ IntArray Merge(IntArray i,int start,int center,int end)
 			j++;
 			index++;
 		}
-	while(z<=end)
+	while(z<end)
 		{
 			temp.array[index]=i.array[z];
 			z++;
@@ -76,6 +77,7 @@ IntArray Merge(IntArray i,int start,int center,int end)
 		}
 	return i;
 }
+
 IntArray MergeSort(IntArray i,int start,int end)
 {
 	if(start<end)
@@ -86,10 +88,38 @@ IntArray MergeSort(IntArray i,int start,int end)
 	}
 	return i;
 }
-
-void QuickSort()
+//Quicksort
+int Partition(IntArray a,int start,int end)
 {
-	
+	int pivot=a.array[start];
+	int left= start-1;
+	int right= end;
+	while(left<right)
+	{
+		while(a.array[right]<=pivot)
+			{
+				right--;
+			}
+		while(a.array[left]>=pivot)
+			{
+				left++;
+			}
+		if(left<right)
+			a=swap(a,left,right);
+			else return right;
+	}//this while exits when the middle index has been reached
+	return right;
+}
+
+IntArray QuickSort(IntArray a,int start,int end)
+{
+	int middle;
+	if(start<end){
+	middle=Partition(a,start,end);
+	a=QuickSort(a,start,middle);
+	a=QuickSort(a,middle+1,end);
+	}
+	return a;
 }
 
 void StoogeSort()
@@ -105,17 +135,26 @@ void Program()
 {
 	IntArray i,l;
 	i=randomArray(-1);
+	printf("\nSelection Sort:\n");
 	ArrayPrint(i);
 	i=SelectionSort(i);
 	ArrayPrint(i);
 	sleep(1);
 	l=randomArray(-1);
+	printf("\n\nInsertion Sort:\n");
 	ArrayPrint(l);
 	l=InsertionSort(l);
 	ArrayPrint(l);
 	sleep(1);
 	l=randomArray(-1);
+	printf("\n\nMerge Sort:\n");
 	ArrayPrint(l);
-	l=MergeSort(l,0,l.size-1);
+	l=MergeSort(l,0,l.size);
+	ArrayPrint(l);
+	sleep(1);
+	l=randomArray(-1);
+	printf("\n\nQuick Sort:\n");
+	ArrayPrint(l);
+	l=QuickSort(l,0,l.size);
 	ArrayPrint(l);
 }

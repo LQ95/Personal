@@ -4,7 +4,7 @@
 IntArray SelectionSort(IntArray i);
 IntArray  InsertionSort(IntArray i);
 IntArray MergeSort(IntArray i,int start,int end);
-void QuickSort();
+IntArray  QuickSort(IntArray a,int start,int end);
 void StoogeSort();
 void HeapSort();
 #endif

@@ -37,7 +37,7 @@ IntArray randomArray(int size)
 	srand(time(NULL));
 	int index=0;
 	if(size<1)
-		size=rand()%15;
+		size=rand()%12 +3;
 	i.size=size;
 	while(index<size)
 	{
