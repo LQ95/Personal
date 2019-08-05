@@ -43,20 +43,19 @@ IntArray Merge(IntArray i,int start,int center,int end)
     IntArray temp;
 	temp=init();
 	temp.size=(end-start);
-	while(j<=center && z<end)//while neither of the arrays are finished,sort
+	while(j<=center && z<=end)//while neither of the arrays are finished,sort
 	{
-		if(i.array[j]<i.array[z])
+		if(i.array[j]<=i.array[z])
 		{
 			temp.array[index]=i.array[j];
 			j++;
-			index++;
 		}
 		else{
 			temp.array[index]=i.array[z];
 			z++;
-			index++;
+			
 			}
-		
+		index++;
 	}
 	//copy the elements in the longer array
 	while(j<=center)
@@ -65,7 +64,7 @@ IntArray Merge(IntArray i,int start,int center,int end)
 			j++;
 			index++;
 		}
-	while(z<end)
+	while(z<=end)
 		{
 			temp.array[index]=i.array[z];
 			z++;
@@ -91,23 +90,24 @@ IntArray MergeSort(IntArray i,int start,int end)
 //Quicksort
 int Partition(IntArray a,int start,int end)
 {
-	int pivot=a.array[start];
+	int pivot=a.array[start]; //assign pivot
 	int left= start-1;
-	int right= end;
-	while(left<right)
-	{
-		while(a.array[right]<=pivot)
-			{
+	int right= end+1;
+	
+	do{
+			do{
 				right--;
 			}
-		while(a.array[left]>=pivot)
-			{
+			while(a.array[right]>pivot);
+		
+			do{
 				left++;
 			}
+			while(a.array[left]<pivot);
 		if(left<right)
 			a=swap(a,left,right);
 			else return right;
-	}//this while exits when the middle index has been reached
+	}while(left<right);//this while exits when the middle index has been reached
 	return right;
 }
 
@@ -116,6 +116,8 @@ IntArray QuickSort(IntArray a,int start,int end)
 	int middle;
 	if(start<end){
 	middle=Partition(a,start,end);
+	printf("arriva qui inizio :%d fine:%d, mezzo:%d \n",start,end,middle);
+	ArrayPrint(a);
 	a=QuickSort(a,start,middle);
 	a=QuickSort(a,middle+1,end);
 	}
@@ -149,12 +151,12 @@ void Program()
 	l=randomArray(-1);
 	printf("\n\nMerge Sort:\n");
 	ArrayPrint(l);
-	l=MergeSort(l,0,l.size);
+	l=MergeSort(l,0,l.size-1);
 	ArrayPrint(l);
 	sleep(1);
 	l=randomArray(-1);
 	printf("\n\nQuick Sort:\n");
 	ArrayPrint(l);
-	l=QuickSort(l,0,l.size);
+	l=QuickSort(l,0,l.size-1);
 	ArrayPrint(l);
 }
