@@ -88,25 +88,27 @@ IntArray MergeSort(IntArray i,int start,int end)
 	return i;
 }
 //Quicksort
-int Partition(IntArray a,int start,int end)
+int Partition(int *a,int start,int end)
 {
-	int pivot=a.array[start]; //assign pivot
+	int pivot=a[start]; //assign pivot
 	int left= start-1;
 	int right= end+1;
-	
+	int tmp;
 	do{
-			do{
+		do{
 				right--;
-			}
-			while(a.array[right]>pivot);
+			}while(a[right]>pivot);
 		
-			do{
+		do{
 				left++;
-			}
-			while(a.array[left]<pivot);
+			}while(a[left]<pivot);
+			
 		if(left<right)
-			a=swap(a,left,right);
-			else return right;
+		{
+			tmp=a[left];
+			a[left]=a[right];
+			a[right]=tmp;
+		}
 	}while(left<right);//this while exits when the middle index has been reached
 	return right;
 }
@@ -115,9 +117,7 @@ IntArray QuickSort(IntArray a,int start,int end)
 {
 	int middle;
 	if(start<end){
-	middle=Partition(a,start,end);
-	printf("arriva qui inizio :%d fine:%d, mezzo:%d \n",start,end,middle);
-	ArrayPrint(a);
+	middle=Partition(a.array,start,end); //apparently it likes this direct pointer to the array better.
 	a=QuickSort(a,start,middle);
 	a=QuickSort(a,middle+1,end);
 	}
