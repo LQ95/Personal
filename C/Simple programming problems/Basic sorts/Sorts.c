@@ -124,9 +124,20 @@ IntArray QuickSort(IntArray a,int start,int end)
 	return a;
 }
 
-void StoogeSort()
+
+IntArray StoogeSort(IntArray a,int start,int end)
 {
-	
+	if(a.array[start]>a.array[end])
+	{
+		a=swap(a,start,end);
+	}
+	if(end-start>2)
+	{
+		StoogeSort(a,start,((end-start)/3)*2);
+		StoogeSort(a,(((end-start)/3)*2)+1,end);
+		StoogeSort(a,start,((end-start)/3)*2);
+	}
+	return a;
 }
 
 void HeapSort()
@@ -158,5 +169,10 @@ void Program()
 	printf("\n\nQuick Sort:\n");
 	ArrayPrint(l);
 	l=QuickSort(l,0,l.size-1);
+	ArrayPrint(l);
+	l=randomArray(-1);
+	printf("\n\nStooge Sort:\n");
+	ArrayPrint(l);
+	l=StoogeSort(l,0,l.size-1);
 	ArrayPrint(l);
 }
