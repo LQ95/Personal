@@ -134,9 +134,9 @@ IntArray StoogeSort(IntArray a,int start,int end)
 	}
 	if(end-start>1)
 	{
-		StoogeSort(a,start,end-third);
-		StoogeSort(a,start+third,end);
-		StoogeSort(a,start,end-third);
+		a=StoogeSort(a,start,end-third);
+		a=StoogeSort(a,start+third,end);
+		a=StoogeSort(a,start,end-third);
 	}
 	return a;
 }
