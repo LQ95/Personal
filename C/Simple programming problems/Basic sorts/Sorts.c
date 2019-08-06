@@ -127,15 +127,16 @@ IntArray QuickSort(IntArray a,int start,int end)
 
 IntArray StoogeSort(IntArray a,int start,int end)
 {
+	int third=(end-start+1)/3;
 	if(a.array[start]>a.array[end])
 	{
 		a=swap(a,start,end);
 	}
-	if(end-start>2)
+	if(end-start>1)
 	{
-		StoogeSort(a,start,((end-start)/3)*2);
-		StoogeSort(a,(((end-start)/3)*2)+1,end);
-		StoogeSort(a,start,((end-start)/3)*2);
+		StoogeSort(a,start,end-third);
+		StoogeSort(a,start+third,end);
+		StoogeSort(a,start,end-third);
 	}
 	return a;
 }
