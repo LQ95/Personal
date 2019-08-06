@@ -7,7 +7,7 @@ IntArray SelectionSort(IntArray i)
 	index=0;
 	while(index<i.size)
 		{
-			index2=min(i,index);
+			index2=min(i,index); //the min function returns the index of the smallest element in the[index...end] section of the array
 			i=swap(i,index2,index);
 			index++;
 		}
@@ -18,11 +18,11 @@ IntArray InsertionSort(IntArray i)
 {
 	int index,tmp,index2;
 	index=0;
-	while(index<i.size)
+	while(index<i.size)//starting from the beginning and proceeding towards the end of the array
 	{
 		tmp=index;
 		index2=index-1;
-		while(index2>-1 && i.array[index2]>i.array[tmp])
+		while(index2>-1 && i.array[index2]>i.array[tmp])//we try to inser the element at [index] to it's place in the array
 			{
 			i=swap(i,index2,tmp);
 			index2--;
@@ -94,16 +94,16 @@ int Partition(int *a,int start,int end)
 	int left= start-1;
 	int right= end+1;
 	int tmp;
-	do{
-		do{
+	do{//both indexes move through the array untile one finds an element that is bigger than the pivot,and the other finds one that is smaller
+		do{ 
 				right--;
-			}while(a[right]>pivot);
+			}while(a[right]>pivot);/
 		
 		do{
 				left++;
 			}while(a[left]<pivot);
 			
-		if(left<right)
+		if(left<right) //if these elments have been found they are swapped
 		{
 			tmp=a[left];
 			a[left]=a[right];
@@ -112,7 +112,8 @@ int Partition(int *a,int start,int end)
 	}while(left<right);//this while exits when the middle index has been reached
 	return right;
 }
-
+//recursive algorithm
+//sorts while partitioning and calls intself on partitions
 IntArray QuickSort(IntArray a,int start,int end)
 {
 	int middle;
@@ -124,7 +125,7 @@ IntArray QuickSort(IntArray a,int start,int end)
 	return a;
 }
 
-
+//recursive algorithm,unefficient on purpose
 IntArray StoogeSort(IntArray a,int start,int end)
 {
 	int third=(end-start+1)/3;
