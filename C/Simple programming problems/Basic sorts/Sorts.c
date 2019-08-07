@@ -97,7 +97,7 @@ int Partition(int *a,int start,int end)
 	do{//both indexes move through the array untile one finds an element that is bigger than the pivot,and the other finds one that is smaller
 		do{ 
 				right--;
-			}while(a[right]>pivot);/
+			}while(a[right]>pivot);
 		
 		do{
 				left++;

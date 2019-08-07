@@ -7,7 +7,18 @@ heapStruct Init(int (*Comp)(void *,void *))
 	return h;
 }
 
-heap heapify(heap h)
+void heapify(heap h,void *el,int (*Comp)(void *,void *))
 {
-	return h;
+	heap left,right,largest;
+	left=h.left;
+	right=h.right;
+	if(left!=NULL && Comp(left.info,el)>0)
+	{
+		
+	}
+	else
+	if(left!=NULL && Comp(left.info,h.info)>0)
+	{
+		
+	}
 }
