@@ -30,9 +30,17 @@ public class FileRenamer{
 }
 
 class Implementation {
-	public void rename(){
+	public void rename(String BaseForRenaming){
 	 //retrieve current working directory
 		File WorkingDir= new File(System.getProperty("user.dir"));
 		File ToBeOrdered[] =WorkingDir.listFiles();
+		int size=ToBeOrdered.length;
+		int StrLen=BaseForRenaming.length()
+		StringBuilder NewFilename=new StringBuilder(BaseForRenaming);
+		for(int i=0;i<size;i++)
+		{
+			NewFilename.insert(strLen,i);
+			ToReOrdered[i].renameTo(new File());
+		}
 	}
 }
