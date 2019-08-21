@@ -65,8 +65,8 @@ class Implementation {
 		for(int i=0;i<size;i++)
 		{
 			NewFilename.insert(strLen,i);
-			NewFilename.append(getExtension(BaseFilename));
-			ToBeOrdered[i].renameTo(new File(NewFilename.toString()));
+			ToBeOrdered[i].renameTo(new File(SelectedDir,NewFilename.toString()+getExtension(ToBeOrdered[i].getName())));
+			NewFilename.delete(strLen, NewFilename.capacity());
 		}
 	}
 	
@@ -76,7 +76,7 @@ class Implementation {
 		int i=s.lastIndexOf('.');
 		if(i>0 && i<s.length()-1)
 		{
-			ext=s.substring(i+1).toLowerCase();
+			ext=s.substring(i).toLowerCase();
 		}
 		return ext;
 	}
