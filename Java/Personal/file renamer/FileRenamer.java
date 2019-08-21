@@ -6,10 +6,11 @@ import javax.swing.*;
 import java.io.File;
 public class FileRenamer{
 	private static Implementation Ren;
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 	{
 		//declarations
 		Ren= new Implementation();
+		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		JFrame Window1=new JFrame("A little silly Mass File Renamer");
 		JTextField TField=new JTextField("Enter directory here...",20);
 		JTextField NameField=new JTextField("Enter new filename here...",20);
