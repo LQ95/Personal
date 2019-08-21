@@ -65,14 +65,14 @@ class Implementation {
 		for(int i=0;i<size;i++)
 		{
 			NewFilename.insert(strLen,i);
+			NewFilename.append(getExtension(BaseFilename));
 			ToBeOrdered[i].renameTo(new File(NewFilename.toString()));
 		}
 	}
 	
-	String getExtension(File F)
+	String getExtension(String s)
 	{
 		String ext=null;
-		String s=F.getName();
 		int i=s.lastIndexOf('.');
 		if(i>0 && i<s.length()-1)
 		{
