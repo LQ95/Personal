@@ -12,10 +12,11 @@ public class FileRenamer{
 		Ren= new Implementation();
 		JFrame Window1=new JFrame("A little silly Mass File Renamer");
 		JTextField TField=new JTextField("Enter directory here...",20);
+		JTextField NameField=new JTextField("Enter new filename here...",20);
 		JButton Confirm=new JButton("Confirm");
 		JButton Browse=new JButton("Browse");
 		JFileChooser ChooseDialog= new JFileChooser();
-		//Settings
+		//Setup
 		ChooseDialog.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		Confirm.setBounds(20,30,50,30);
 		Window1.setSize(640,480);
@@ -25,7 +26,7 @@ public class FileRenamer{
 		Confirm.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent e)
 				{
-					Ren.rename(TField.getText());
+					Ren.rename(TField.getText(),NameField.getText());
 				}
 			}
 		);
@@ -46,6 +47,7 @@ public class FileRenamer{
 		windowContainer.setLayout(new GridLayout(5,2,23,40));
 		windowContainer.add(TField);
 		windowContainer.add(Browse);
+		windowContainer.add(NameField);
 		windowContainer.add(Confirm);
 	}
 	
@@ -53,17 +55,29 @@ public class FileRenamer{
 }
 
 class Implementation {
-	public void rename(String BaseForRenaming){
+	public void rename(String SelectedDir,String BaseFilename){
 	 //retrieve current working directory
-		File WorkingDir= new File(System.getProperty("user.dir"));
+		File WorkingDir= new File(SelectedDir);
 		File ToBeOrdered[] =WorkingDir.listFiles();
 		int size=ToBeOrdered.length;
-		int strLen=BaseForRenaming.length();
-		StringBuilder NewFilename=new StringBuilder(BaseForRenaming);
+		int strLen=BaseFilename.length();
+		StringBuilder NewFilename=new StringBuilder(BaseFilename);
 		for(int i=0;i<size;i++)
 		{
 			NewFilename.insert(strLen,i);
 			ToBeOrdered[i].renameTo(new File(NewFilename.toString()));
 		}
+	}
+	
+	String getExtension(File F)
+	{
+		String ext=null;
+		String s=F.getName();
+		int i=s.lastIndexOf('.');
+		if(i>0 && i<s.length()-1)
+		{
+			ext=s.substring(i+1).toLowerCase();
+		}
+		return ext;
 	}
 }
