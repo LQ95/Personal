@@ -6,24 +6,15 @@ import javax.swing.*;
 import java.io.File;
 public class FileRenamer{
 	private static Implementation Ren;
-	private static JFrame Window1=new JFrame("A little silly Mass File Renamer");
-	private	static JTextField TField=new JTextField("Enter directory here...",20);
-	private	static JButton Confirm=new JButton("Confirm");
-	private	static JButton Browse=new JButton("Browse");
-	private	static JFileChooser ChooseDialog= new JFileChooser();
-	private	File SelectedDirectory;
-	ActionListener BrowseListener= new ActionListener(){
-		public void actionPerformed(ActionEvent e)
-				{
-					ChooseDialog.showOpenDialog(Window1);
-					SelectedDirectory=ChooseDialog.getSelectedFile();
-					TField.setText(SelectedDirectory.getPath());
-				}
-			};
 	public static void main(String[] args)
 	{
 		//declarations
 		Ren= new Implementation();
+		JFrame Window1=new JFrame("A little silly Mass File Renamer");
+		JTextField TField=new JTextField("Enter directory here...",20);
+		JButton Confirm=new JButton("Confirm");
+		JButton Browse=new JButton("Browse");
+		JFileChooser ChooseDialog= new JFileChooser();
 		//Settings
 		ChooseDialog.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		Confirm.setBounds(20,30,50,30);
@@ -38,7 +29,18 @@ public class FileRenamer{
 				}
 			}
 		);
-		Browse.addActionListener(BrowseListener);
+		Browse.addActionListener(
+		new ActionListener(){
+			File SelectedDirectory;
+		public void actionPerformed(ActionEvent e)
+				{
+					ChooseDialog.showOpenDialog(Window1);
+					SelectedDirectory=ChooseDialog.getSelectedFile();
+					TField.setText(SelectedDirectory.getPath());
+				}
+			}
+			
+		);
 		//everything is put inside the window
 		Container windowContainer=Window1.getContentPane();
 		windowContainer.setLayout(new GridLayout(5,2,23,40));
