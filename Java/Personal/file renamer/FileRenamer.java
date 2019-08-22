@@ -20,9 +20,8 @@ public class FileRenamer{
 		//Setup
 		ChooseDialog.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		Confirm.setBounds(20,30,50,30);
-		Window1.setSize(640,480);
+		Window1.setPreferredSize(new Dimension(640,480));
 		Window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Window1.setVisible(true);
 		//Action Listeners
 		Confirm.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent e)
@@ -50,6 +49,8 @@ public class FileRenamer{
 		windowContainer.add(Browse);
 		windowContainer.add(NameField);
 		windowContainer.add(Confirm);
+		Window1.pack();
+		Window1.setVisible(true);
 	}
 	
 
