@@ -8,6 +8,20 @@ public class FileRenamer{
 	private static Implementation Ren;
 	public static void main(String[] args) throws Exception
 	{
+		SwingUtilities.invokeLater(() -> //lambda expression to create an anonymous class of the Runnable type and assgn it to a thread to be run
+		{
+			try{
+			createAndShowGUI();
+			}
+			catch (Exception e)
+			{
+				return;
+			}
+		});
+		
+	}
+	
+	static private void createAndShowGUI()throws Exception{
 		//declarations
 		Ren= new Implementation();
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -44,7 +58,7 @@ public class FileRenamer{
 		);
 		//everything is put inside the window
 		Container windowContainer=Window1.getContentPane();
-		windowContainer.setLayout(new GridLayout(5,2,23,40));
+		windowContainer.setLayout(new GridLayout(5,5,23,34));
 		windowContainer.add(TField);
 		windowContainer.add(Browse);
 		windowContainer.add(NameField);
@@ -52,7 +66,6 @@ public class FileRenamer{
 		Window1.pack();
 		Window1.setVisible(true);
 	}
-	
 
 }
 
