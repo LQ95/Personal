@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.io.File;
 public class FileRenamer{
-	private static Implementation Ren;
+	private static Renamer Ren;
 	public static void main(String[] args) throws Exception
 	{
 		SwingUtilities.invokeLater(() -> //lambda expression to create an anonymous class of the Runnable type and assgn it to a thread to be run
@@ -23,7 +23,7 @@ public class FileRenamer{
 	
 	static private void createAndShowGUI()throws Exception{
 		//declarations
-		Ren= new Implementation();
+		Ren= new Renamer();
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		JFrame Window1=new JFrame("A little silly Mass File Renamer");
 		JTextField TField=new JTextField("Enter directory here...",20);
@@ -58,7 +58,7 @@ public class FileRenamer{
 		);
 		//everything is put inside the window
 		Container windowContainer=Window1.getContentPane();
-		windowContainer.setLayout(new GridLayout(5,5,23,34));
+		windowContainer.setLayout(new FlowLayout(FlowLayout.CENTER,23,34));
 		windowContainer.add(TField);
 		windowContainer.add(Browse);
 		windowContainer.add(NameField);
@@ -69,7 +69,7 @@ public class FileRenamer{
 
 }
 
-class Implementation {
+class Renamer {
 	public void rename(String SelectedDir,String BaseFilename){
 	 //retrieve current working directory
 		File WorkingDir= new File(SelectedDir);
