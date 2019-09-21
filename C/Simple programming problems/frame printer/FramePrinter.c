@@ -7,15 +7,22 @@ void DrawHorizontalBorder(int size,char border)
 			printf("%c",border);
 		}
 }
-void FramePrinter(){
+int longest(/*list name*/){
+	int max=strlen(/*list name*/[0]);
+	for (int i=0;i</*list size*/;i++){
+		if(strlen(/*list name*/[i])>max)
+			max=strlen(/*list name*/[i]);
+	}
+}
+void FramePrinter(/*list name*/){
 	char border='*';
-	int framelength=longest();
+	int framelength=longest(/*list name*/);
 	int difference;
-	DrawHorizontalBorder(framelength+2,border);
-	for (int i=0;i<;i++){
+	DrawHorizontalBorder(framelength+2,border);//draw horizontal border before ad after
+	for (int i=0;i</*list size*/;i++){
 		printf("%c",border);
 		difference=framelength-strlen();
-		printf("%s",[i]);
+		printf("%s",/*list name*/[i]);
 		for (int j=0;j<difference;j++){
 			printf(" ");
 		}
