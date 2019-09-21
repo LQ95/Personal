@@ -13,22 +13,22 @@ IntArray generateSortedArray(int size){
 //returns the element's index
 int BinarySearch(int elem,IntArray arr){
 	int start=0;
-	int half=I.size/2;
-	int end=I.size-1;
-	while()
+	int half=indexHalfing(arr.size);
+	int end=arr.size-1;
+	while(end!=start+1)
 	{
 		if(arr.array[half]==elem)
 			return half;
 		else if (arr.array[half]>elem)
 			{
 				end=half;
-				half=end/2;
+				half=indexHalfing(end);
 				
 			}
 		else 
 			{
 				start=half;
-				half=half+((end-start)/2)
+				half=half+(indexHalfing(end-start));
 			}
 	}
 	return -1;
