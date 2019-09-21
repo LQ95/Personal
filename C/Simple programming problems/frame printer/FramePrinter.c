@@ -1,33 +1,41 @@
 #include "lib.h"
-//a function that takes a list of strings an prints them, one per line, in a rectangular frame.
+
 void DrawHorizontalBorder(int size,char border)
 {
   for (int j=0;j<size;j++)
 		{
 			printf("%c",border);
 		}
+   printf("\n");
 }
-int longest(/*list name*/){
-	int max=strlen(/*list name*/[0]);
-	for (int i=0;i</*list size*/;i++){
-		if(strlen(/*list name*/[i])>max)
-			max=strlen(/*list name*/[i]);
+
+int longest(/*list type*/ L){
+	int max=strlen(L.info);
+	while(L!=NULL){
+		if(strlen(L.info)>max)
+			max=strlen(L.info);
+		L=L->next;
 	}
+	return max;
 }
-void FramePrinter(/*list name*/){
+//a function that takes a list of strings an prints them, one per line, in a rectangular frame.
+void FramePrinter(/*list type*/ L){
 	char border='*';
-	int framelength=longest(/*list name*/);
+	int framelength=longest(L);
 	int difference;
 	DrawHorizontalBorder(framelength+2,border);//draw horizontal border before ad after
-	for (int i=0;i</*list size*/;i++){
-		printf("%c",border);
-		difference=framelength-strlen();
-		printf("%s",/*list name*/[i]);
-		for (int j=0;j<difference;j++){
-			printf(" ");
+	while(L!=NULL)
+		{
+			printf("%c",border);
+			difference=framelength-strlen();
+			printf("%s",L.info);
+			for (int j=0;j<difference;j++)
+				{
+					printf(" ");
+				}
+			printf("%c\n",border);
+			L=L->next;
 		}
-		printf("%c",border);
-	}
 	DrawHorizontalBorder(framelength+2,border);
 	return;
 }
