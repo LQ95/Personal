@@ -11,7 +11,6 @@ void DrawHorizontalBorder(int size,char border)
 
 int longest(StringList L){
 	int max=strlen(L->info);
-	printf("arriva qui?3");
 	while(L!=NULL){
 		if(strlen(L->info)>max)
 			max=strlen(L->info);
@@ -24,19 +23,20 @@ void FramePrinter(StringList L){
 	char border='*';
 	int framelength=longest(L);
 	int difference;
-	DrawHorizontalBorder(framelength+2,border);//draw horizontal border before ad after
+	printf("\n");
+	DrawHorizontalBorder(framelength+4,border);//draw horizontal border before ad after
 	while(L!=NULL)
 		{
 			printf("%c",border);
 			difference=framelength-strlen(L->info);
-			printf("%s",L->info);
+			printf(" %s",L->info);
 			for (int j=0;j<difference;j++)
 				{
 					printf(" ");
 				}
-			printf("%c\n",border);
+			printf(" %c\n",border);
 			L=L->next;
 		}
-	DrawHorizontalBorder(framelength+2,border);
+	DrawHorizontalBorder(framelength+4,border);
 	return;
 }
