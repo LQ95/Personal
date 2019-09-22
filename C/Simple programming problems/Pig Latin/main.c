@@ -2,8 +2,9 @@
 
 int main(){
 	char *pig,*normal;
-	pig=convertToPig("I am testing my converter to and from Pig Latin");
-	printf("%s",pig);
+	char message[]="I am testing my converter to and from Pig Latin";
+	pig=convertToPig(message);
+	printf("Pig Latin\n%s",pig);
 	normal=convertToPig(pig);
-	printf("%s",normal);
+	printf("Normal:\n%s",normal);
 }
