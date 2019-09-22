@@ -9,17 +9,18 @@ void DrawHorizontalBorder(int size,char border)
    printf("\n");
 }
 
-int longest(/*list type*/ L){
-	int max=strlen(L.info);
+int longest(StringList L){
+	int max=strlen(L->info);
+	printf("arriva qui?3");
 	while(L!=NULL){
-		if(strlen(L.info)>max)
-			max=strlen(L.info);
+		if(strlen(L->info)>max)
+			max=strlen(L->info);
 		L=L->next;
 	}
 	return max;
 }
 //a function that takes a list of strings an prints them, one per line, in a rectangular frame.
-void FramePrinter(/*list type*/ L){
+void FramePrinter(StringList L){
 	char border='*';
 	int framelength=longest(L);
 	int difference;
@@ -27,8 +28,8 @@ void FramePrinter(/*list type*/ L){
 	while(L!=NULL)
 		{
 			printf("%c",border);
-			difference=framelength-strlen();
-			printf("%s",L.info);
+			difference=framelength-strlen(L->info);
+			printf("%s",L->info);
 			for (int j=0;j<difference;j++)
 				{
 					printf(" ");
