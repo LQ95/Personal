@@ -38,5 +38,6 @@ void FramePrinter(StringList L){
 			L=L->next;
 		}
 	DrawHorizontalBorder(framelength+4,border);
+	printf("\n");
 	return;
 }
