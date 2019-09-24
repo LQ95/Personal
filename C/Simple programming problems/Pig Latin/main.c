@@ -3,8 +3,8 @@
 int main(){
 	char *pig,*normal;
 	char message[]="I am testing my converter to and from Pig Latin";
-	pig=convertToPig(message);
-	printf("Pig Latin\n%s\n",pig);
-	normal=convertFromPig(pig);
-	printf("Normal:\n%s",normal);
+	pig=convert(message,true);
+	printf("\n\nPig Latin\n%s\n",pig);
+	normal=convert(pig,false);
+	printf("\nNormal:\n%s\n\n",normal);
 }

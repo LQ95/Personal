@@ -27,43 +27,23 @@ char *fromPigLatin(char *word){
 	return newword;
 }
 
-char *convertToPig(char *data){
-	char *currentword;
-	char *pig;
-	int length;
-	if(data!=NULL){
-		length=strlen(data);
-		pig=calloc(length,sizeof(char));
-		currentword=strtok(data," ");
-		while(currentword!=NULL){ 
-				currentword=toPigLatin(currentword);
-				strcat(pig,currentword);
-				strcat(pig," ");
-				currentword=strtok(NULL," ");	
-			}
-		}
-	return pig;
-}
-
-char *convertFromPig(char *data){
+char *convert(char *data,bool pigMode){
 	char *currentword;
 	char *converted;
 	int length;
-	if(data!=NULL)
-		{
-			length=strlen(data);
-			converted=calloc(length,sizeof(char));
-			currentword=strtok(data," ");
-			printf("arriva qui?%s",currentword);
-			while(currentword!=NULL){
-					printf("\nda convertire:%s\n\n",currentword);
-					currentword=fromPigLatin(currentword);
-					strcat(converted,currentword);
-					strcat(converted," ");
-					printf("\n\ntesto convertito:\n%s\n",converted);
-					currentword=strtok(NULL," ");	
-				}
-	
+	if(data!=NULL){
+		length=strlen(data);
+		converted=calloc(length,sizeof(char));
+		currentword=strtok(data," ");
+		while(currentword!=NULL){ 
+				if(pigMode==true)
+					currentword=toPigLatin(currentword);
+				else currentword=fromPigLatin(currentword);
+				strcat(converted,currentword);
+				strcat(converted," ");
+				currentword=strtok(NULL," ");	
+			}
 		}
-		return converted;
+	return converted;
 }
+
