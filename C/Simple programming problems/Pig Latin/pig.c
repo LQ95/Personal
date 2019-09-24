@@ -34,7 +34,7 @@ char *convert(char *data,bool pigMode){
 	if(data!=NULL){
 		length=strlen(data);
 		converted=calloc(length,sizeof(char));
-		currentword=strtok(data," ");
+		currentword=strtok(data," "); // divide the string into tokens and convert each token
 		while(currentword!=NULL){ 
 				if(pigMode==true)
 					currentword=toPigLatin(currentword);
