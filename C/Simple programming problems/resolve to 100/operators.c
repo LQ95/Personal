@@ -1,16 +1,18 @@
 #include "lib.h"
 int sum(int n1,int n2,bool print){
-	if(print) printf("%d + %d",n1,n2);
+	if(print && n2!=10) printf("%d + ",n1,n2);
+	else if(print) printf("%d + %d",n1,n2);
 	return n1+n2;
 }
 
 int subtract(int n1,int n2,bool print){
-	if(print) printf("%d - %d",n1,n2);
+	if(print && n2!=10) printf("%d - ",n1,n2);
+	else if(print) printf("%d - %d",n1,n2);
 	return n1-n2;
 }
 
 int addDigit(int n1,int n2,bool print){
-	if(print) printf("%d%d",n1,n2);
+	if(print) printf(" %d%d ",n1,n2);
 	return (n1*10)+n2;
 }
 
@@ -22,4 +24,5 @@ void PrintOperation(Operator *OpList){
 		CurrentFunc=OpList[i];
 		CurrentFunc(i,i+1,true);
 	}
+	printf(" =100\n");
 }
