@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-typedef int (*Operator)(int,int);
-int sum(int n1,int n2);
-int subtract(int n1,int n2);
-int addDigit(int n1,int n2);
+#include <stdbool.h>
+typedef int (*Operator)(int,int,bool);
+int sum(int n1,int n2,bool print);
+int subtract(int n1,int n2,bool print);
+int addDigit(int n1,int n2,bool print);
+void PrintOperation(Operator *OpList);
