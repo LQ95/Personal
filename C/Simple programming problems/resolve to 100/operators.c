@@ -26,3 +26,13 @@ void PrintOperation(Operator *OpList){
 	}
 	printf(" =100\n");
 }
+
+Operator *MakeOpList(Operator *OpList,int iteration)
+{
+	//base 3 conversion,which is then converted into a list of operators
+	return OpList;
+}
+
+int IterationOptimizer(int iteration){
+	
+}
