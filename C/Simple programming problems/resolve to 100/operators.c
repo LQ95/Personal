@@ -29,10 +29,31 @@ void PrintOperation(Operator *OpList){
 
 Operator *MakeOpList(Operator *OpList,int iteration)
 {
+	if(OpList==NULL)
+		OpList=malloc(sizeof(Operator)*8);
+	int base3vector[8];
+	int i;
 	//base 3 conversion,which is then converted into a list of operators
+	for(i=0;i<9;i++){
+		if(iteration>0)
+		{
+			base3vector[i]=iteration%3;
+			iteration=iteration/3;
+		}
+		else base3vector[i]=0;
+	}
+	
+	for(i=0;i<9;i++){
+		if(base3vector[i]==0)
+			OpList[i]=sum;
+		else if (base3vector[i]==1)
+			OpList[i]=subtract;
+		else OpList[i]=addDigit;
+	}
+	
 	return OpList;
 }
 
 int IterationOptimizer(int iteration){
-	
+	//TODO make an optimizer than folows the notes I wrote on the main program
 }
