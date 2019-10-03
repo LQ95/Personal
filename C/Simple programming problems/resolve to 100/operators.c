@@ -15,7 +15,7 @@ int addDigit(int n1,int n2,bool print){
 	if(print) printf(" %d%d ",n1,n2);
 	return (n1*10)+n2;
 }
-
+//TODO this function needs to be changed,it needs to have an array of ints passed to it along with it's size,so that it can print the operation directly without errors
 void PrintOperation(Operator *OpList){
 	int i;
 	Operator CurrentFunc;
