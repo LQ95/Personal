@@ -25,7 +25,6 @@ int main(){
 		sum+=CurrentFunc(i,i+1,false);
 		if(i>1) sum-=i;
 		OpList[i-1]=CurrentFunc;
-		printf("somma:%d",sum);
 	}
 	if(sum==100) PrintOperation(OpList);
 	iteration++;

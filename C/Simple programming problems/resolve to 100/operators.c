@@ -19,9 +19,9 @@ int addDigit(int n1,int n2,bool print){
 void PrintOperation(Operator *OpList){
 	int i;
 	Operator CurrentFunc;
-	for (i=1;i<10;i++)
+	for (i=1;i<9;i++)
 	{
-		CurrentFunc=OpList[i];
+		CurrentFunc=OpList[i-1];
 		CurrentFunc(i,i+1,true);
 	}
 	printf(" =100\n");
@@ -34,7 +34,7 @@ Operator *MakeOpList(Operator *OpList,int iteration)
 	int base3vector[8];
 	int i;
 	//base 3 conversion,which is then converted into a list of operators
-	for(i=0;i<9;i++){
+	for(i=0;i<8;i++){
 		if(iteration>0)
 		{
 			base3vector[i]=iteration%3;
@@ -43,17 +43,17 @@ Operator *MakeOpList(Operator *OpList,int iteration)
 		else base3vector[i]=0;
 	}
 	
-	for(i=0;i<9;i++){
+	for(i=0;i<8;i++){
 		if(base3vector[i]==0)
 			OpList[i]=sum;
 		else if (base3vector[i]==1)
 			OpList[i]=subtract;
 		else OpList[i]=addDigit;
 	}
-	
 	return OpList;
 }
 
 int IterationOptimizer(int iteration){
 	//TODO make an optimizer than folows the notes I wrote on the main program
+	return iteration;
 }
