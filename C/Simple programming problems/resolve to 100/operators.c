@@ -19,6 +19,7 @@ int addDigit(int n1,int n2,bool print){
 void PrintOperation(Operator *OpList){
 	int i;
 	Operator CurrentFunc;
+	printf("\n");
 	for (i=1;i<9;i++)
 	{
 		CurrentFunc=OpList[i-1];
