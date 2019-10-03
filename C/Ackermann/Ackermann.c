@@ -18,5 +18,8 @@ int main()
 	scanf("%llu",&y);
 	res=Ackermann2(x,y);
 	printf("result:%llu the function called itself %llu times",res,count);
+	count=0;
+	res=Ackermann(1,1,2);
+	printf("\ntest result for three arg version:%llu the function called itself %llu times",res,count);
 }
 

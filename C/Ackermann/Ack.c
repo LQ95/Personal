@@ -13,6 +13,7 @@ unsigned long long Ackermann2(unsigned long long x,unsigned long long y)
 }
 unsigned long long Ackermann(unsigned long long x,unsigned long long y,unsigned long long z)
 {
+	count++;
 	if(x > 0 && y>0 && z==0)
 		return x+y;
 	else if(y ==0 && z==1 && x>0)
@@ -23,7 +24,7 @@ unsigned long long Ackermann(unsigned long long x,unsigned long long y,unsigned 
 		return x;
 	else if(x>0 && z>0 && y>0)
 	{
-		Ackermann(x,Ackermann(x,y-1,z),z);
+		return Ackermann(x,Ackermann(x,y-1,z),z);
 	}
 	else return -1;
 }

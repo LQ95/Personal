@@ -11,11 +11,12 @@ int main(){
 	Operator OpArray[3]={sum,subtract,addDigit};
 	Operator *OpList;
 	Operator CurrentFunc;
+	int numbers[9];
 	int last=pow(3,9)-1;
 	int iteration=0;
 	srand(time(NULL));
-	int i;
-	int sum;
+	int i,sum,size;
+	size=0;
 	while(iteration<last){
 	sum=0;
 	OpList=MakeOpList(OpList,iteration);
@@ -25,6 +26,7 @@ int main(){
 		sum+=CurrentFunc(i,i+1,false);
 		if(i>1) sum-=i;
 		OpList[i-1]=CurrentFunc;
+		size++;
 	}
 	if(sum==100) PrintOperation(OpList);
 	iteration++;
