@@ -10,3 +10,4 @@ int addDigit(int n1,int n2,bool print);
 Operator *MakeOpList(Operator *OpList,int iteration);
 int IterationOptimizer(int iteration);
 void PrintOperation(Operator *OpList);
+//void PrintOperation(int *NumList,int size);

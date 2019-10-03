@@ -28,6 +28,20 @@ void PrintOperation(Operator *OpList){
 	printf(" =100\n");
 }
 
+/*
+void PrintOperation(int *NumList,int size){
+	int i;
+	printf("\n");
+	printf("%d ",NumList[0]);
+	for (i=1;i<size;i++)
+	{
+		if(NumList[i] >0 )printf("+ %d ",NumList[i]);
+		else printf(" %d ",NumList[i]);
+	}
+	printf(" =100\n");
+}
+
+*/
 Operator *MakeOpList(Operator *OpList,int iteration)
 {
 	if(OpList==NULL)

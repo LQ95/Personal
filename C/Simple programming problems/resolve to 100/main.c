@@ -15,15 +15,30 @@ int main(){
 	int last=pow(3,9)-1;
 	int iteration=0;
 	srand(time(NULL));
-	int i,sum,size;
-	size=0;
+	int i,sum,size,index;
 	while(iteration<last){
+	size=1;
 	sum=0;
 	OpList=MakeOpList(OpList,iteration);
 	for (i=1;i<8;i++)  //TODO this cycle needs to use an int array to store previous values in order to correctly compute the sums and to pass it to the printing function
 	{
-		CurrentFunc=OpArray[rand()%3];
+		OpIndex=rand()%3;
+		CurrentFunc=OpArray[OpIndex];
+		/*
+		if(OpIndex==2)
+			{
+				numbers[size]=CurrentFunc(i,i+1,false);
+				i++;
+			}
+		else if	(OpIndex==1)
+			numbers[size]=-(i+1)
+		else numbers[size]=i;
+			*/
 		sum+=CurrentFunc(i,i+1,false);
+		/*
+		if(size>1) sum+=CurrentFunc(numbers[size-1],i+1,false);
+		else sum+=CurrentFunc(i,i+1,false);
+			*/
 		if(i>1) sum-=i;
 		OpList[i-1]=CurrentFunc;
 		size++;
