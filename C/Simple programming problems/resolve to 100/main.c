@@ -8,9 +8,7 @@ however we can cut that down,excluding every cicle without an AddDigit operation
 */
 #include "lib.h"
 int main(){
-	Operator OpArray[3]={sum,subtract,addDigit};
 	int OpList[8];
-	Operator CurrentFunc;
 	int numbers[9];
 	int last=pow(3,9)-1;
 	int iteration=0;
@@ -20,33 +18,30 @@ int main(){
 	size=1;
 	sum=0;
 	MakeOpList(OpList,iteration);
-	for (i=1;i<8;i++)  //TODO this cycle needs to use an int array to store previous values in order to correctly compute the sums and to pass it to the printing function
+	for (i=1;i<8;i++)  //The array of numbers is first properly transformed,and then the calculation is made
 		{
 			OpIndex=OpList[size-1];
-			CurrentFunc=OpArray[OpIndex];
-			//after selecting the operation,we use the last index on the numbers array to make the calculation
-			if(size>1) 
-				sum+=CurrentFunc(numbers[size-1],i+1,false);
-			else 
-				sum+=CurrentFunc(i,i+1,false);
-			if(i>1) 
-				sum-=i;
 			//different operations modify the array of operands differently
-			if(OpIndex==2)//if addDigit is selected,the result is added to the number array directly
+			if(OpIndex==2)//if Fuse is selected,the result is added to the number array directly
 				{
 					if(size>1) 
-						numbers[size-1]=CurrentFunc(numbers[size-1],i+1,false);
+						numbers[size-1]=Fuse(numbers[size-1],i+1);
 					else 
-						numbers[size-1]=CurrentFunc(i,i+1,false);
+						numbers[size-1]=Fuse(i,i+1);
 					i++;
 				}
 			else if	(OpIndex==1) 
 				numbers[size]=-(i+1);
 			else if	(OpIndex==0) 
-				numbers[size]=i;
+				numbers[size]=i+1;
 			size++;
 		}
-	if(sum==100) 
+		//operations are exectued after the number array is made
+	for (i=0;i<size;i++)
+		{
+			sum+=numbers[i];
+		}
+	//if(sum==100) 
 		PrintOperation(numbers,size);
 	iteration++;
 	}
