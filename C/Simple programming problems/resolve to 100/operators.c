@@ -16,7 +16,7 @@ int addDigit(int n1,int n2,bool print){
 	return (n1*10)+n2;
 }
 //TODO this function needs to be changed,it needs to have an array of ints passed to it along with it's size,so that it can print the operation directly without errors
-void PrintOperation(Operator *OpList){
+/*void PrintOperation(Operator *OpList){
 	int i;
 	Operator CurrentFunc;
 	printf("\n");
@@ -26,9 +26,9 @@ void PrintOperation(Operator *OpList){
 		CurrentFunc(i,i+1,true);
 	}
 	printf(" =100\n");
-}
+}*/
 
-/*
+
 void PrintOperation(int *NumList,int size){
 	int i;
 	printf("\n");
@@ -41,30 +41,19 @@ void PrintOperation(int *NumList,int size){
 	printf(" =100\n");
 }
 
-*/
-Operator *MakeOpList(Operator *OpList,int iteration)
+int *MakeOpList(int *OpList,int iteration)
 {
-	if(OpList==NULL)
-		OpList=malloc(sizeof(Operator)*8);
-	int base3vector[8];
 	int i;
-	//base 3 conversion,which is then converted into a list of operators
+	//base 3 conversion,which is then converted into a list of operators in the main function
 	for(i=0;i<8;i++){
 		if(iteration>0)
 		{
-			base3vector[i]=iteration%3;
+			OpList[i]=iteration%3;
 			iteration=iteration/3;
 		}
-		else base3vector[i]=0;
+		else OpList[i]=0;
 	}
 	
-	for(i=0;i<8;i++){
-		if(base3vector[i]==0)
-			OpList[i]=sum;
-		else if (base3vector[i]==1)
-			OpList[i]=subtract;
-		else OpList[i]=addDigit;
-	}
 	return OpList;
 }
 
