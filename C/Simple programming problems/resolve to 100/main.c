@@ -31,12 +31,27 @@ int main(){
 					else 
 						numbers[size-1]=Fuse(i,i+1);
 					size--;
-					i++;
 				}
 			else if	(Operator==1) 
-				numbers[size]=-(i+1);
+				{
+					if(i>1)
+						numbers[size]=-(i+1);
+					else 
+						{
+							numbers[size-1]=i;
+							numbers[size]=-(i+1);
+						}
+				}
 			else if	(Operator==0) 
-				numbers[size]=i+1;
+				{
+					if(i>1)
+						numbers[size]=i+1;
+					else
+					{
+							numbers[size-1]=i;
+							numbers[size]=i+1;					
+					}
+				}
 			size++;
 		}
 		//the calculation is made after the array is transformed
@@ -44,7 +59,7 @@ int main(){
 		{
 			sum+=numbers[i];
 		}
-	//if(sum==100) 
+	if(sum==100) 
 		PrintOperation(numbers,size);
 	iteration++;
 	}
