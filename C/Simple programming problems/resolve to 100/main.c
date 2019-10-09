@@ -2,15 +2,15 @@
 Write a program that outputs all possibilities to put + or - or nothing between the numbers 1,2,…,9
  (in this order) such that the result is 100. For example 1 + 2 + 3 - 4 + 5 + 6 + 78 + 9 = 100.
 */
-/*notes: checking for every possible operation with three operands on every number from 1 to 9 would need 3^8-1 cycles. 
-however we can cut that down,excluding every cicle without a Fuse operation in it, witch subracts 2^8-1 from the previously mentioned 3^8-1
+/*notes: checking for every possible operation with three operands on every number from 1 to 9 would need 3^8 cycles. 
+however we can cut that down,excluding every cicle without a Fuse operation in it, witch subracts 2^8 from the previously mentioned 3^8
 
 */
 #include "lib.h"
 int main(){
 	int OpList[8];
 	int numbers[9];
-	int last=pow(3,8)-1;
+	int last=pow(3,8);
 	int iteration=0;
 	srand(time(NULL));
 	int i,Operator,sum,size,CurrentNum,PreviousNum;
@@ -61,11 +61,9 @@ int main(){
 		{
 			sum+=numbers[i];
 		}
+	
 	if(sum==100) 
-		{
-			//PrintOpList(iteration);
 			PrintOperation(numbers,size);
-		}
 	iteration++;
 	}
 return 0;
