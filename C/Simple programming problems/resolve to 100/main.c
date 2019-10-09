@@ -13,7 +13,7 @@ int main(){
 	int last=pow(3,9)-1;
 	int iteration=0;
 	srand(time(NULL));
-	int i,Operator,sum,size,CurrentNum;
+	int i,Operator,sum,size,CurrentNum,PreviousNum;
 	while(iteration<last){
 	size=1;
 	sum=0;
@@ -23,16 +23,18 @@ int main(){
 		{
 			Operator=OpList[i-1];
 			CurrentNum++;
+			if(CurrentNum>1)
+				PreviousNum=numbers[size-1];
 			//different operations modify the array of operands differently
 			if(Operator==2)//if Fuse is selected,the result is added to the number array directly
 				{
 					if(CurrentNum>1) 
-						numbers[size-1]=Fuse(numbers[size-1],CurrentNum+1);
+						numbers[size-1]=Fuse(PreviousNum,CurrentNum+1);
 					else 
 						numbers[size-1]=Fuse(CurrentNum,CurrentNum+1);
 					size--;
 				}
-			else if	(Operator==1) 
+			else if	(Operator==1) //if we have to subtract the next number we add it as a negative integer to the array
 				{
 					if(CurrentNum>1)
 						numbers[size]=-CurrentNum-1;

@@ -1,7 +1,8 @@
 #include "lib.h"
 
 int Fuse(int n1,int n2){
-	return (n1*10)+n2;
+	if(n1<0) return (n1*10)-n2;
+	else return (n1*10)+n2;
 }
 
 void PrintOperation(int *NumList,int size){
