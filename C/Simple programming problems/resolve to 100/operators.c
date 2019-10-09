@@ -33,6 +33,23 @@ int *MakeOpList(int *OpList,int iteration)
 	return OpList;
 }
 
+//Debugging function
+void PrintOpList(int iteration){
+	int i;
+	int j;
+	printf("\nLista operatori:\n");
+	for(i=0;i<8;i++){
+		if(iteration>0)
+		{
+			j=iteration%3;
+			iteration=iteration/3;
+		}
+		else j=0;
+		printf("%d",j);
+	}
+	
+	return;
+}
 int IterationOptimizer(int iteration){
 	//TODO make an optimizer than folows the notes I wrote on the main program
 	return iteration;
