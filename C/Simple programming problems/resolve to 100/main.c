@@ -13,43 +13,43 @@ int main(){
 	int last=pow(3,9)-1;
 	int iteration=0;
 	srand(time(NULL));
-	int i,Operator,sum,size,OpIndex;
+	int i,Operator,sum,size,CurrentNum;
 	while(iteration<last){
 	size=1;
 	sum=0;
-	OpIndex=0;
+	CurrentNum=0;
 	MakeOpList(OpList,iteration);
 	for (i=1;i<9;i++)  //The array of numbers is first properly transformed,and then the calculation is made
 		{
-			Operator=OpList[OpIndex];
-			OpIndex++;
+			Operator=OpList[i-1];
+			CurrentNum++;
 			//different operations modify the array of operands differently
 			if(Operator==2)//if Fuse is selected,the result is added to the number array directly
 				{
-					if(i>1) 
-						numbers[size-1]=Fuse(numbers[size-1],i+1);
+					if(CurrentNum>1) 
+						numbers[size-1]=Fuse(numbers[size-1],CurrentNum+1);
 					else 
-						numbers[size-1]=Fuse(i,i+1);
+						numbers[size-1]=Fuse(CurrentNum,CurrentNum+1);
 					size--;
 				}
 			else if	(Operator==1) 
 				{
-					if(i>1)
-						numbers[size]=-(i+1);
+					if(CurrentNum>1)
+						numbers[size]=-CurrentNum-1;
 					else 
 						{
-							numbers[size-1]=i;
-							numbers[size]=-(i+1);
+							numbers[size-1]=CurrentNum;
+							numbers[size]=-CurrentNum-1;
 						}
 				}
 			else if	(Operator==0) 
 				{
-					if(i>1)
-						numbers[size]=i+1;
+					if(CurrentNum>1)
+						numbers[size]=CurrentNum+1;
 					else
 					{
-							numbers[size-1]=i;
-							numbers[size]=i+1;					
+							numbers[size-1]=CurrentNum;
+							numbers[size]=CurrentNum+1;					
 					}
 				}
 			size++;

@@ -11,9 +11,9 @@ void PrintOperation(int *NumList,int size){
 	for (i=1;i<size;i++)
 	{
 		if(NumList[i] >0 )printf("+ %d ",NumList[i]);
-		else printf(" %d ",NumList[i]);
+		else printf("- %d ",-(NumList[i]));
 	}
-	printf(" =100\n");
+	printf(" = 100\n");
 }
 
 int *MakeOpList(int *OpList,int iteration)
