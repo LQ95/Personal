@@ -62,7 +62,7 @@ function Display2(){
 }		
 								
 function Musica(){
-var snd= document.getElementsByClassName("suono");
+var snd= document.getElementsByClassName("suono")[0];
 snd.play();
 
 
