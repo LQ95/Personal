@@ -47,9 +47,10 @@ function Display(){
  if (document.getElementById("nascosto").style.display=="none")
    		{
    		document.getElementById("nascosto").style.display="block";
+		animazione1();
 														  }
  else document.getElementById("nascosto").style.display="none";
-	 }
+}
 
 
 function Display2(){
