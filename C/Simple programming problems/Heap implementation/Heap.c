@@ -10,7 +10,7 @@ void swap(heap h1,heap h2)
 {
 	void *tmp;
 	tmp=h1->info;
-	h1->info=h2->info
+	h1->info=h2->info;
 	h2->info=tmp;
 }
 void heapify(heap h,heap el,int (*Comp)(void *,void *))
@@ -31,6 +31,6 @@ void heapify(heap h,heap el,int (*Comp)(void *,void *))
 	if(largest!=el)
 	{
 		swap(el,largest);
-		Heapify(h,largest);
+		heapify(h,largest,Comp);
 	}
 }

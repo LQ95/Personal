@@ -14,5 +14,5 @@ typedef struct H{
 	int (*Comparator)(void *,void *);
 } heapStruct;
 
-void heapify(heapStruct h,void *el);
+void heapify(heap h,heap el,int (*Comp)(void *,void *));
 heapStruct Init(int (*Comp)(void *,void *));
