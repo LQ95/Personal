@@ -6,7 +6,7 @@ function animate(timing,draw,duration){
 			{
 				var timeFraction=(time - beginningTimestamp)/ duration;
 				if (timeFraction>1) timeFraction=1;
-	
+			
 				var progress=timing(timeFraction);
 		
 				draw(progress);
@@ -19,9 +19,12 @@ function animate(timing,draw,duration){
 
 function leftBoxDraw(animationCompletionState){
 	var box=document.getElementById("flyingbox");
-	finalValue=Math.cos(Math.acos(animationCompletionState))*-500;
+	var extraWidth=document.body.clientWidth- box.clientWidth -17;
+	if(animationCompletionState > 0.5)
+		animationCompletionState-=(animationCompletionState-0.5)*2;
+	finalValue=Math.cos(Math.acos(animationCompletionState))*-1000;
 	
-	box.style.left=finalValue+1100 +'px';
+	box.style.left=finalValue+ extraWidth +'px';
 	box.style.top=finalValue +'px';
 }
 
@@ -31,7 +34,7 @@ function leftBoxTiming(timeFraction){
 }
 
 function animazione1(){
-animate(leftBoxTiming,leftBoxDraw,2000);
+animate(leftBoxTiming,leftBoxDraw,3000);
 }
 
 //Functions unrelated to animation
@@ -57,7 +60,6 @@ function Display2(){
   if(document.getElementById("nascosto2").style.display=="block")
   {
 	document.getElementById("nascosto2").style.display="none";
-	animazione1();
   }
   else document.getElementById("nascosto2").style.display="block";
 }		
