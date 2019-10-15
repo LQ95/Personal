@@ -16,19 +16,20 @@ function animate(timing,draw,duration){
 			}
 		);
 }
-
+//this function moves a box into a point and then makes it bounce back to its origin
 function leftBoxDraw(animationCompletionState){
 	var box=document.getElementById("flyingbox");
+	var speed=1000;
 	var extraWidth=document.body.clientWidth- box.clientWidth -17;
 	if(animationCompletionState > 0.5)
 		animationCompletionState-=(animationCompletionState-0.5)*2;
-	finalValue=Math.cos(Math.acos(animationCompletionState))*-1000;
+	finalValue=Math.cos(Math.acos(animationCompletionState))*-speed;
 	
 	box.style.left=finalValue+ extraWidth +'px';
 	box.style.top=finalValue +'px';
 }
 
-//this funtion returns the animation completion progress for the time fraction
+//this function returns the animation completion progress for the time fraction
 function leftBoxTiming(timeFraction){
 	return 1 - Math.sin(Math.acos(timeFraction));
 }
@@ -60,6 +61,12 @@ function Display2(){
   if(document.getElementById("nascosto2").style.display=="block")
   {
 	document.getElementById("nascosto2").style.display="none";
+	document.getElementById("jumpingbox").style.animationPlayState="running";
+	document.getElementById("jumpingbox").style.animationIterationCount="infinite";
+	setTimeout(function(){
+		document.getElementById("jumpingbox").style.animationPlayState="paused";
+		document.getElementById("jumpingbox").style.animationIterationCount="1";
+	},1000)
   }
   else document.getElementById("nascosto2").style.display="block";
 }		

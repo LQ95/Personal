@@ -69,7 +69,11 @@ p.gothic{color: #302E2D;font-family:League Gothic;font-size:30px;margin-left: 20
       position: relative;
       right:207px;
       overflow:scroll;
-      }
+	  animation-name:move;
+	  animation-play-state:paused;
+	  animation-duration:1s;
+	  animation-iteration-count:1;
+}
 #nascosto{
 display:none;
 }
