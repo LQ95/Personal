@@ -65,8 +65,9 @@ function Display2(){
 }		
 								
 function Musica(){
-var snd= document.getElementsByClassName("suono")[0];
-snd.play();
+var snd= document.getElementsByClassName("suono");
+var selected= Math.floor(Math.random()* 3);
+snd[selected].play();
 
 
 }
