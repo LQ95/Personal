@@ -35,7 +35,7 @@ function leftBoxTiming(timeFraction){
 }
 
 function animazione1(){
-animate(leftBoxTiming,leftBoxDraw,3000);
+animate(leftBoxTiming,leftBoxDraw,1500);
 }
 
 //Functions unrelated to animation
@@ -65,8 +65,8 @@ function Display2(){
 	document.getElementById("jumpingbox").style.animationIterationCount="infinite";
 	setTimeout(function(){
 		document.getElementById("jumpingbox").style.animationPlayState="paused";
-		document.getElementById("jumpingbox").style.animationIterationCount="1";
-	},1000)
+		document.getElementById("jumpingbox").style.animationIterationCount="0";
+	},990)
   }
   else document.getElementById("nascosto2").style.display="block";
 }		
