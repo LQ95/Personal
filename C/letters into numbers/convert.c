@@ -10,6 +10,10 @@ char *toLowerCase(char *data)
 		}
 	return data;
 }
+void pause(){
+	printf("\nPress anykey to continue...");
+	getchar();
+}
 //convert from letters to numbers
 void convert(char *data)
 {
@@ -23,4 +27,5 @@ void convert(char *data)
 			}
 		i++;
 	}
+	pause();
 }
