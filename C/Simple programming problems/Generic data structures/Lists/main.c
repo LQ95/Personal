@@ -8,7 +8,9 @@ int intComparator(void *arg1,void *arg2){
 
 char *intToString(ListNode *el)
 	{
-		return sprintf("%d",el->info);
+		char *out=malloc(64);
+		sprintf(out,"%d",el->info);
+		return out;
 	};
 
 int main(){

@@ -1,5 +1,5 @@
 #include "genericList.h"
-GenericList init(void *el,int (*Comparator)(void *el1,void *el2),char (*(*toString))(ListNode *N))
+GenericList init(void *el,int (*Comparator)(void *el1,void *el2),string (*toString)(ListNode *N))
 	{
 		GenericList g;
 		g.first=create(el);
