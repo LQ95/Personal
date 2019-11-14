@@ -16,12 +16,12 @@ List create(void *el)
 	return L;
 }
 
-List add(List L,void *el)
+GenericList add(GenericList L,void *el)
 {
-	if(L!=NULL)
+	if(L.first!=NULL)
 	{
 		List tmp;
-		tmp=L;
+		tmp=L.first;
 		while(tmp->next!=NULL)
 			{
 				tmp=tmp->next;
@@ -31,21 +31,22 @@ List add(List L,void *el)
 		tmp->next->info=el;
 		tmp->next->next=NULL;
 	}
-	else L=create(el);
+	else L.first=create(el);
 	return L;
 }
 
-List addHead(List L,void *el)
+GenericList addHead(GenericList L,void *el)
 {
-	if(L!=NULL)
+	if(L.first!=NULL)
 	{
 		List H;
 		H=malloc(sizeof(ListNode));
 		H->info=el;
-		H->next=L;
-		return H;
+		H->next=L.first;
+		L.first=H;
+		return L;
 	}
-	else return create(el);
+	else return add(L,el);
 }
 
 List search(GenericList L,void *el)
@@ -63,12 +64,13 @@ List search(GenericList L,void *el)
 	return NULL;
 }
 
-void Print(GenericList L)
+void print(GenericList L)
 {
 	if(L.first!=NULL && L.toString!=NULL)
 		{
 			List tmp;
 			tmp=L.first;
+			printf("| ")
 			while(tmp!=NULL)
 				{
 					printf("%s | ",L.toString(tmp));

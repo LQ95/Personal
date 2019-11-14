@@ -16,8 +16,8 @@ typedef struct GenericL{
 } GenericList;
 GenericList init(void *el,int (*Comparator)(void *el1,void *el2),string (*toString)(ListNode *N));
 List create(void *el);
-List add(List L,void *el);
-List addHead(List L,void *el);
+GenericList add(GenericList L,void *el);
+GenericList addHead(GenericList L,void *el);
 List search(GenericList L,void *el);
-void Print(GenericList L);
+void print(GenericList L);
 #endif

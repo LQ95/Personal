@@ -15,6 +15,12 @@ char *intToString(ListNode *el)
 
 int main(){
 	GenericList L;
-	
+	int elem=23,elem2,elem3;
+	L=init(&elem,intComparator,intToString);
+	elem2=34;
+	elem3=elem2+67;
+	L=add(L,&elem);
+	L=add(L,&elem);
+	print(L);
 	return 0;
 }
