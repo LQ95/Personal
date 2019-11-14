@@ -1,5 +1,13 @@
 #include "genericList.h"
-List create(*void el)
+GenericList init(void *el,int (*Comparator)(void *el1,void *el2),char (*(*toString))(ListNode *N))
+	{
+		GenericList g;
+		g.first=create(el);
+		g.Comparator=Comparator;
+		g.toString=toString;
+		return g;
+	}
+List create(void *el)
 {
 	List L;
 	L=malloc(sizeof(ListNode));
@@ -8,7 +16,7 @@ List create(*void el)
 	return L;
 }
 
-List add(List L,*void el)
+List add(List L,void *el)
 {
 	if(L!=NULL)
 	{
@@ -27,7 +35,7 @@ List add(List L,*void el)
 	return L;
 }
 
-List addHead(List L,*void el)
+List addHead(List L,void *el)
 {
 	if(L!=NULL)
 	{
@@ -40,27 +48,32 @@ List addHead(List L,*void el)
 	else return create(el);
 }
 
-List search(GenericList L,*void el)
+List search(GenericList L,void *el)
 {
-	if(L.list!=NULL)
+	if(L.first!=NULL && L.Comparator!=NULL)
 	{
-		List tmp=L.list;
+		List tmp=L.first;
 			while(tmp->next!=NULL)
 			{
 				tmp=tmp->next;
-				if(L.Comp(tmp->info,el)>0)
+				if(L.Comparator(tmp->info,el)>0)
 					return tmp;
 			}
 	}
 	return NULL;
 }
+
 void Print(GenericList L)
 {
-	List tmp;
-	tmp=L.first;
-	while(tmp!=NULL)
+	if(L.first!=NULL && L.toString!=NULL)
 		{
-			L.toString(tmp);
-			tmp=tmp->next;
+			List tmp;
+			tmp=L.first;
+			while(tmp!=NULL)
+				{
+					printf("%s | ",L.toString(tmp));
+					tmp=tmp->next;
+				
+				}
 		}
 }
