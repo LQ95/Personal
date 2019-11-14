@@ -57,7 +57,7 @@ List search(GenericList L,void *el)
 			while(tmp->next!=NULL)
 			{
 				tmp=tmp->next;
-				if(L.Comparator(tmp->info,el)>0)
+				if(L.Comparator(tmp->info,el)==0)
 					return tmp;
 			}
 	}
@@ -70,7 +70,7 @@ void print(GenericList L)
 		{
 			List tmp;
 			tmp=L.first;
-			printf("| ")
+			printf("| ");
 			while(tmp!=NULL)
 				{
 					printf("%s | ",L.toString(tmp));

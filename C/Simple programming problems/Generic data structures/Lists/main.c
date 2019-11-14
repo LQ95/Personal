@@ -9,7 +9,7 @@ int intComparator(void *arg1,void *arg2){
 char *intToString(ListNode *el)
 	{
 		char *out=malloc(64);
-		sprintf(out,"%d",el->info);
+		sprintf(out,"%d",*((int*)el->info) );
 		return out;
 	};
 
@@ -19,8 +19,9 @@ int main(){
 	L=init(&elem,intComparator,intToString);
 	elem2=34;
 	elem3=elem2+67;
-	L=add(L,&elem);
-	L=add(L,&elem);
+	L=add(L,&elem2);
+	L=add(L,&elem3);
 	print(L);
+	printf("%s",L.toString(search(L,&elem2)));
 	return 0;
 }
