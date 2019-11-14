@@ -40,6 +40,20 @@ List addHead(List L,*void el)
 	else return create(el);
 }
 
+List search(GenericList L,*void el)
+{
+	if(L.list!=NULL)
+	{
+		List tmp=L.list;
+			while(tmp->next!=NULL)
+			{
+				tmp=tmp->next;
+				if(L.Comp(tmp->info,el)>0)
+					return tmp;
+			}
+	}
+	return NULL;
+}
 void Print(GenericList L)
 {
 	List tmp;

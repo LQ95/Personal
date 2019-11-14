@@ -9,11 +9,12 @@ typedef struct Node{
 typedef ListNode *List;
 typedef struct GenericL{
 	List first;
-	int (*Comprator)(*void,*void);
+	int (*Comparator)(*void,*void);
 	*char (*toString)(*ListNode);
 } GenericList;
 GenericList init(*void el,int (*Comprator)(*void,*void),*char (*toString)(ListNode));
 List add(List L,*void el);
 List addHead(List L,*void el);
+List search(List L,*void el);
 void Print(GenericList L);
 #endif
