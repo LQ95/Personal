@@ -3,13 +3,13 @@
 typedef struct e{
 	struct e *next;
 	int node;
-	int info;
 }edge;
 //Edge list operations here
 
 typedef struct g{
 	edge **edges;
 	int nodes;
+	int *info;
 }graph;
 
 //Graph operations here
