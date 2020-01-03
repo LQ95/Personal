@@ -22,7 +22,7 @@ IntArray InsertionSort(IntArray i)
 	{
 		tmp=index;
 		index2=index-1;
-		while(index2>-1 && i.array[index2]>i.array[tmp])//we try to inser the element at [index] to it's place in the array
+		while(index2>-1 && i.array[index2]>i.array[tmp])//we try to insert the element at [index] to it's place in the array
 			{
 			i=swap(i,index2,tmp);
 			index2--;
@@ -142,9 +142,26 @@ IntArray StoogeSort(IntArray a,int start,int end)
 	return a;
 }
 
-void HeapSort()
+void Heapify(intArray i,int node)
 {
 	
+}
+
+void MakeHeap(intArray A,int size)
+{
+ for(int j=size/2;j>0;j--)
+		Heapify(i,)
+}
+
+void HeapSort(intArray i)
+{
+	int size=i.size; 
+	MakeHeap(i,size);
+	for(size=i.size;size>1;size--)
+		{
+		swap(a,0,size);
+		Heapify(i,1,size);
+		}
 }
 void Program()
 {
