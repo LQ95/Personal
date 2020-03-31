@@ -163,6 +163,57 @@ void HeapSort(intArray i)
 		Heapify(i,1,size);
 		}
 }
+/*
+oid heapsort(int input[],int size)
+{
+    int subsize=size-1;
+    int i,tmp;
+    makeheap(input,size);
+    arrayprint(input,size);
+    for(i=size-1;i>0;i--)
+        {
+            tmp=input[0];
+            input[0]=input[i];
+            input[i]=tmp;
+            subsize--;
+            heapify(input,0,subsize);
+            arrayprint(input,size);
+        }
+    return;
+}
+
+void arrayprint(const int input[],int size)
+{
+int count;
+printf("\n");
+for(count=0;count<size;count++)
+        {
+            printf("%d ",input[count]);
+        }
+printf("\n");
+}
+
+void heapify(int A[],int i,int size)
+{
+int left=left(i)-1;
+int right=right(i)-1;
+int bigger,tmp;
+if(left<size-1 && A[left]>A[i]) //find largest element in current sub-heap
+    bigger=left;
+else bigger=i;
+if(right<size-1 && A[right]>A[bigger])
+   bigger=right;
+if(bigger!=i) //once the biggest one is found we make the necessary changes to the heap,we put it in the root of the current sub-heap
+    {
+        tmp=A[i];
+        A[i]=A[bigger];
+        A[bigger]=tmp;
+        heapify(A,bigger,size);
+    }
+return;
+}
+
+*/
 void Program()
 {
 	IntArray i,l;
