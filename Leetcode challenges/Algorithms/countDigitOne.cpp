@@ -17,10 +17,10 @@ public:
             exponent=floor(log10(n));
             quotient=n/pow(10,exponent);
             remainder=n - pow(10,exponent)*quotient;
-            occurrences= countDigitOne(remainder);
+            occurrences= countDigitOne(remainder); //needs fixing
             if(quotient==1)
-                occurrences+=(remainder+1)*exponent +exponent;
-            else occurrences+=pow(10,exponent)+ pow(10,exponent-1)*quotient;
+                occurrences+=remainder+1 +exponent;
+            else occurrences+=pow(10,exponent)+ pow(10,exponent-1)*quotient; //and so does this
             
         }
         else if(n<0)
