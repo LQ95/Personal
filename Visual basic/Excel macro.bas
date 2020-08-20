@@ -11,22 +11,27 @@ Dim i As Long
 Dim LastRow As Long
 Dim name As String
 Dim num As Long
+Dim MMSI_col As Integer
+Dim ship_and_cargo_col As Integer
+MMSI_col = 3
+ship_and_cargo_col = 16
 '
-    Sheets("Foglio2").Select
+    Sheets("tabella MMSI").Select
     LastRow = Cells.SpecialCells(xlCellTypeLastCell).Row
     For i = 2 To LastRow
             name = Cells(i, 1).Value
-            num = Cells(i, 3).Value
-            d.Add name, num
-        
+            num = Cells(i, 2).Value
+            If Not d.Exists(name) Then
+                d.Add name, num
+            End If
     Next
     
-    Sheets("Foglio1").Select
+    Sheets("dati dinamici ").Select
     LastRow = Cells.SpecialCells(xlCellTypeLastCell).Offset(1, 0).Row
     For i = 1 To LastRow
-        If IsEmpty(Cells(i, 3)) And Not IsEmpty(Cells(i, 1)) Then
-            name = Cells(i, 1).Value
-            Cells(i, 3).Value = d(name)
+        If IsEmpty(Cells(i, ship_and_cargo_col)) And Not IsEmpty(Cells(i, MMSI_col)) Then
+            name = Cells(i, MMSI_col).Value
+            Cells(i, ship_and_cargo_col).Value = d(name)
         End If
         
     Next
