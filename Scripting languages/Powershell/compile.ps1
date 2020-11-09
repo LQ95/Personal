@@ -73,9 +73,13 @@ function Compile(){
 
 $Text=$CompPath.Text
 $DropDown= $Compiler.SelectedItem
+if($Text -eq $null -or $Text -eq "")
+{
+	return;
+}
 if((Test-Path -Path $Text -PathType leaf) -eq $False)
 	{
-		[System.Windows.MessageBox]::Show('Invalid Path ')
+		[System.Windows.Forms.MessageBox]::Show('Invalid Path ')
 	}
 else {
     if($DropDown -eq "C (gcc)")
