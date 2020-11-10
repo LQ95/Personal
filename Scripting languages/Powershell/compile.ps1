@@ -2,7 +2,6 @@
 
 #Add windows Forms
 Add-Type -AssemblyName System.Windows.Forms
-
 #Create a new form
 $global:CompileForm = New-Object system.Windows.forms.Form
 
@@ -15,9 +14,6 @@ $CompileForm.BackColor = "#0077cc"
 $TitleLabel = New-Object system.Windows.forms.Label
 $TitleLabel.text = "Please select a file path and a compiler."
 $TitleLabel.AutoSize = $true
-
-
-#Positioning label
 $TitleLabel.Font = "Microsoft Sans Serif,24"
 
 #Other smaller labels
@@ -57,16 +53,23 @@ $CompileButton.text = "Compile"
 $CompileButton.width = 90 
 $CompileButton.height= 30
 $CompileButton.Font= "Microsoft Sans Serif,10"
+
+$CmdButton = New-Object System.Windows.Forms.Button
+$CmdButton.BackColor = "#a4ba67"
+$CmdButton.text = "Start cmd"
+$CmdButton.width = 90 
+$CmdButton.height= 30
+$CmdButton.Font= "Microsoft Sans Serif,10"
 #Positioning 
 $TitleLabel.location=New-Object System.Drawing.Point(0,0);
 $PathLabel.location=New-Object System.Drawing.Point(0,75);
 $CompPath.location=New-Object System.Drawing.Point(0,100);
 $CompilerLabel.location=New-Object System.Drawing.Point(0,200);
 $Compiler.location=New-Object System.Drawing.Point(75,200);
-$CompileButton.location=New-Object System.Drawing.Point(250,300);
-
+$CompileButton.location=New-Object System.Drawing.Point(150,300);
+$CmdButton.location=New-Object System.Drawing.Point(300,300);
 #Add elements to form
-$CompileForm.controls.AddRange(@($TitleLabel,$PathLabel,$CompPath,$CompilerLabel,$Compiler,$CompileButton)) 
+$CompileForm.controls.AddRange(@($TitleLabel,$PathLabel,$CompPath,$CompilerLabel,$Compiler,$CompileButton,$CmdButton)) 
 
 #Compile function
 function Compile(){
@@ -74,9 +77,9 @@ function Compile(){
 $Text=$CompPath.Text
 $DropDown= $Compiler.SelectedItem
 if($Text -eq $null -or $Text -eq "")
-{
-	return;
-}
+	{
+		return;
+	}
 if((Test-Path -Path $Text -PathType leaf) -eq $False)
 	{
 		[System.Windows.Forms.MessageBox]::Show('Invalid Path ')
@@ -84,14 +87,26 @@ if((Test-Path -Path $Text -PathType leaf) -eq $False)
 else {
     if($DropDown -eq "C (gcc)")
            {
+			   if([System.IO.Path]::GetExtension($Text) -ne ".c")
+					{
+						[System.Windows.Forms.MessageBox]::Show('Incorrect file type ')
+						return;
+					}
 	           gcc -o test.exe $Text
 	       }
-    else {
-            g++ -o test.exe $Text
-        }
+	 if($DropDown -eq "C++ (g++)")
+           {
+			   if([System.IO.Path]::GetExtension($Text) -ne ".cpp")
+					{
+						[System.Windows.Forms.MessageBox]::Show('Incorrect file type ')
+						return;
+					}
+	           g++ -o test.exe $Text
+	       }
     }
 }
 
 $CompileButton.Add_Click({ Compile })
+$CmdButton.Add_Click({ start cmd.exe })
 #Display the form
 [void]$CompileForm.ShowDialog()
