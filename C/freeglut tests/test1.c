@@ -19,14 +19,15 @@ void display()
 {
   glClear(GL_COLOR_BUFFER_BIT);
 
-  /* Display a red square */
-  glColor3f(1.0f, 0.0f, 0.0f);
+  /* Display a green pentagon */
+  glColor3f(0.0f, 1.0f, 0.0f);
 
   glBegin(GL_POLYGON);
-    glVertex2f(-0.5f, -0.5f);
-    glVertex2f( 0.5f, -0.5f);
-    glVertex2f( 0.5f,  0.5f);
-    glVertex2f(-0.5f,  0.5f);
+    glVertex2f( 0.75f, -0.5f);
+    glVertex2f( 0.75f,  0.5f);
+    glVertex2f(-0.25f,  0.75f);
+	glVertex2f(-0.75f, 0);
+	glVertex2f(-0.25f,  -0.75f);
   glEnd();
 
   glFlush();
