@@ -1,5 +1,6 @@
 #include <GL/freeglut.h>
 #include <stdlib.h>
+#include <math.h>
 /* Keyboard callback function */
 void keyboard(unsigned char key, int x, int y)
 {
@@ -20,7 +21,10 @@ float angle = 0.0f;
 void display()
 {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+  int vertices,x,y;
+  vertices=12;
+  float angle2=0.0f;
+  const float pi=3.14f;
   //reset transformations
   glLoadIdentity();
   
@@ -29,18 +33,19 @@ void display()
 		   0.0f, 0.0f, 0.0f,
 		   0.0f, 1.0f, 0.0f);
   
-  glRotatef(angle, 0.0f, 1.0f, 0.0f);
+  glRotatef(angle, 0.0f, 1.0f, 0.0f); //y rotation
+  glRotatef(345, 1.0f, 0.0f,0.0f); //z rotation,fixed
   
-  
-  /* Display a green pentagon */
+  /* set color to green */
   glColor3f(0.0f, 1.0f, 0.0f);
 
   glBegin(GL_POLYGON);
-    glVertex3f( 0.75f, -0.5f,0);
-    glVertex3f( 0.75f,  0.5f,0.4f);
-    glVertex3f(-0.25f,  0.75f,0.3f);
-	glVertex3f(-0.75f, 0,0.5);
-	glVertex3f(-0.25f,  -0.75f,0.2);
+	for(int i = 0;i<vertices;i++)
+	{
+		angle2=angle2 + (pi*2)/vertices;
+		glVertex3f( cos(angle2),sin(angle2),0);
+	}
+    
   glEnd();
   
   angle +=1;
