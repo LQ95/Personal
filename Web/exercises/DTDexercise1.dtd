@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!--
+    TODO define vocabulary identification data
+    PUBLIC ID  : -//vendor//vocabulary//EN
+    SYSTEM ID  : http://server/path/__NAME__
+-->
+
+<!-- TODO define your own vocabulary/syntax. Example follows:  -->
+<!DOCTYPE CookBook SYSTEM[
+<!ELEMENT ricetta(difficoltà,numpersone,ingredienti,procedura)>
+<!ELEMENT ricetta (#PCDATA)>
+<!ELEMENT numpersone (#PCDATA)>
+<!ELEMENT ingredienti (#PCDATA)>
+<!ELEMENT procedura) (#PCDATA)>
+]>
+
+
