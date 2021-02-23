@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Language" content="en,it"/>
+		<meta http-equiv="Content-type" content="text/html; charset=unicode"/>
+		<title>Prove tecniche TecWeb</title>
+		<script src="scripts/first.js"></script>
+		<script src="scripts/objects.js"></script>
+	</head>
+	
+	<body>
+		<h1>Test</h1>
+		<br/>
+		<a href="https://www.example.com">link esempio</a><br/>
+		<a href="esame/index.html">ESAME</a>
+		<br/>
+		<h2>Test CGI e form HTML </h2>
+			<form action="/cgi-bin/cgitest.cgi" method="GET">
+				<label for="nome">nome:</label><br/>
+				<input type="text" name="nome"><br/>
+				<label for="cognome">cognome:</label><br/>
+				<input type="text" name="cognome"><br/>
+				<label for="litri">litri di pianti annuali:</label><br/>
+				<input type="text" name="litri"><br/>
+				<input type="submit" value="invia">
+			</form>
+			<br>
+			<form action="https://www.google.com/search?q=keyword" method="get">
+				<input type="text" name="q" id="keyword"><br/>
+				<input type="submit" value="Cerca su google">
+			</form>
+		<h2>Test Javascript </h2>
+			<div id="scriptTest"> 
+				<h3>Test vari su meccanismi di base</h3>
+					<hr>
+					<script>
+						document.write("1: Stampa qualcosa<br/>");
+						test();
+						document.write("<br/><hr>2: Array di valori diversi<br/>");
+						arraytest();
+						document.write("<br/><hr>3: Peculiaretà  del comportamento del boolean<br/>");
+						booleantest();
+						document.write("<br/><hr>4: Alcune cose sui tipi<br/>");
+						typetest();
+						document.write("<br/><hr>5: Testa un paio di costutti condizionali specifici di javascript<br/>");
+						testFor();
+						document.write("<br/><hr>6: Testa una funzione con parametri<br/>");
+						document.write(sq(95));
+						document.write("<br/><hr>7: Testa una funzione usata come oggetto<br/>");
+						const factorial= function(num){ if(num<2){return num;} else return num*arguments.callee(num-1);};
+						var num=15;
+						document.write("fattoriale di "+ num +" : "+ factorial(num));
+						document.write("<br/><hr>8: Secondo test di una funzione usata come oggetto<br/>");
+						let nums=[1,3,7,10,25];
+						document.write(transformArray(cube,nums));
+						document.write("<br/><hr>10: Test di una funzione che fa uso dell'array built in di argomenti<br/>");
+						document.write(CustomConc("_ _","bzzzt","paperino","OOOOOOOOOOOOOOOOOOOOOO"));
+						document.write("<br/><hr>11: Test dell'operatore virgola<br/>");
+						CommaOpTest();
+					</script>
+					<hr>
+				<h3>Test manipolazione elementi DOM</h3>
+					<form name="testsomma">
+						<input type="text" name="Op1"><br/>
+						<input type="text" name="Op2"><br/>
+						<input type="button" value="testa la somma" onClick="TrovaESomma()"><br/>
+						<input type="text" name="out"><br/>
+					</form>
+			</div>
+	</body>
+</html>

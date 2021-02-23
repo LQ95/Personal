@@ -1,0 +1,45 @@
+<!DOCTYPE HTML >
+<html>
+	<head>
+	<meta http-equiv="Content-Language" content="en,it"/>
+	<meta http-equiv="Content-type" content="text/html: charset=utf-8"/>
+	<title>TecWeb su Tomcat</title>
+	</head>
+	<body>
+	<h1>WebApp di TecWeb in Tomcat</h1>
+	<a href="esame/index.html">ESAME</a>
+		<div id="servlets">
+			<h2>Servlets</h2>
+			<ul>
+				<li><a href="servlet/First">Servlet 1</a></li>
+				<li>
+					<form action="servlet/Input" method="GET">
+						<label for="firstname"> inserisci nome</label>
+						<input type="text" name="firstname"></input>
+						<input type="submit" value ="test servlet 2"></input>
+					</form>
+				</li>
+				<li>
+					<form action="servlet/Input" method="POST">
+						<label for="firstname"> inserisci nome</label>
+						<input type="text" name="firstname"></input>
+						<input type="submit" value ="test servlet 2 in POST"></input>
+					</form>
+				</li>
+			<li><a href="servlet/DisplayForm">Fai la stessa cosa della JSP che mostra i dati del form</a></li>
+			</ul>
+			<h3>Session tracking</h3>
+			<li><a href="servlet/SessionTracking1">Primo test di session tracking</a></li>
+			<li><a href="servlet/SessionTracking2">test di session tracking con autorizzazione HTTP</a></li>
+			</div>
+			<div id="JSP">
+				<h2>JSP</h2>
+				<ul>
+				<li><a href="jsp/firstJSP.jsp">JSP 1</a></li>
+				<li><a href="jsp/DisplayForm.jsp">Mostra i dati di una form</a></li>
+				<li><a href="jsp/JavaBeansExample.jsp">importa e usa un JavaBean </a></li>
+			</ul>
+			<br/>
+			</div>
+	</body>
+</html>

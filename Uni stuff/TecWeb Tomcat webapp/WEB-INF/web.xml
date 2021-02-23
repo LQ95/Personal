@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">
+  
+	<description>
+      Implementazioni corso TecWeb 
+    </description>
+	<display-name>Test per TecWeb</display-name>
+	
+	<servlet>
+	<servlet-name>First</servlet-name>
+	<servlet-class>FirstServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+	<servlet-name>InputServ</servlet-name>
+	<servlet-class>TakingInput</servlet-class>
+	<init-param>
+            <param-name>readonly</param-name>
+            <param-value>false</param-value>
+    </init-param>
+	</servlet>
+	<!-- il parametro readonly serve ad autorizzare sia get che post se impostato a false -->
+	
+	<servlet>
+	<servlet-name>DisplayForm</servlet-name>
+	<servlet-class>DisplayFormServlet</servlet-class>
+	<init-param>
+            <param-name>readonly</param-name>
+            <param-value>false</param-value>
+    </init-param>
+	</servlet>
+	
+	<servlet>
+	<servlet-name>SessionTracking1</servlet-name>
+	<servlet-class>SessionTrackingServlet1</servlet-class>
+	<init-param>
+            <param-name>readonly</param-name>
+            <param-value>false</param-value>
+    </init-param>
+	</servlet>
+	
+	<servlet>
+	<servlet-name>SessionTracking2</servlet-name>
+	<servlet-class>AuthorizationTestServlet</servlet-class>
+	<init-param>
+            <param-name>readonly</param-name>
+            <param-value>false</param-value>
+    </init-param>
+	</servlet>
+		<servlet>
+		
+	<servlet-name>Esame</servlet-name>
+	<servlet-class>esame.ServletTifosi</servlet-class>
+	<init-param>
+            <param-name>readonly</param-name>
+            <param-value>false</param-value>
+    </init-param>
+	</servlet>
+	
+	<!--Mappature Servlet -->
+	<servlet-mapping>
+		<servlet-name>First</servlet-name>
+		<url-pattern>/servlet/First</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>InputServ</servlet-name>
+		<url-pattern>/servlet/Input</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DisplayForm</servlet-name>
+		<url-pattern>/servlet/DisplayForm</url-pattern>
+	</servlet-mapping>
+		
+	<servlet-mapping>
+		<servlet-name>SessionTracking1</servlet-name>
+		<url-pattern>/servlet/SessionTracking1</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>SessionTracking2</servlet-name>
+		<url-pattern>/servlet/SessionTracking2</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Esame</servlet-name>
+		<url-pattern>/servlet/ServletTifosi</url-pattern>
+	</servlet-mapping>
+	
+	<session-config> 
+		<tracking-mode>COOKIE</tracking-mode> 
+	</session-config> 
+	
+	 <security-constraint>
+      <display-name>Authorization 1</display-name>
+      <web-resource-collection>
+         <web-resource-name>SessionTracking2</web-resource-name>
+         <!-- Define the context-relative URL(s) to be protected -->
+         <url-pattern>/servlet/SessionTracking2</url-pattern>
+         <!-- If you list http methods, only those methods are protected -->
+         <http-method>DELETE</http-method>
+         <http-method>GET</http-method>
+         <http-method>POST</http-method>
+         <http-method>PUT</http-method>
+      </web-resource-collection>
+      <auth-constraint>
+         <!-- Anyone with one of the listed roles may access this area -->
+         <role-name>tomcat</role-name>
+         <role-name>role1</role-name>
+		 <role-name>Lorzo</role-name>
+      </auth-constraint>
+    </security-constraint>
+
+ <login-config>
+    <auth-method>BASIC</auth-method>
+  </login-config>
+</web-app>
