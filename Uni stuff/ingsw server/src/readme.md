@@ -1,1 +1,1 @@
-Source code for an uni project, made in colaborationw ith @MarcoGalantino
+Source code for an uni project, made in collaboration with @MarcoGalantino
