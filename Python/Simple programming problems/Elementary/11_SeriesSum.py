@@ -7,8 +7,6 @@
 
 
 def SeriesSum():
-    import os
-    clear = lambda: os.system('cls' if os.name=='nt' else 'clear')
     k=0
     k2=1
     currterm=0
