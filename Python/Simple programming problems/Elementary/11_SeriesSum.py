@@ -14,7 +14,6 @@ def SeriesSum():
     backspace=""
 
     while k2<1000000:
-        k=0
         while k<k2:
             series_sum=+currterm
             currterm=pow(-1,k+1)/(2*k+1)
@@ -23,10 +22,9 @@ def SeriesSum():
         if series_sum <0:
             backspace="\b"
         print("per k= " + str(k) + u" la somma moltiplicata per 4 è : " + backspace + str(series_sum),end='\r')
-        series_sum=0
         backspace=""
         k2=k2+1
-
+    print("\n")
        
         
 
