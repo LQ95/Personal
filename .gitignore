@@ -9,3 +9,4 @@ C++/GDI+ stuff/test1.o
 *.sql
 *.sqlite
 *.ipch
+*.bat
