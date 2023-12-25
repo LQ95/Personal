@@ -13,7 +13,7 @@ def SeriesSum():
     series_sum=0
     backspace=""
 
-    for k2 in range(1,1000000):
+    while k2<1000000:
         k=0
         while k<k2:
             series_sum=+currterm
@@ -25,6 +25,7 @@ def SeriesSum():
         print("per k= " + str(k) + u" la somma moltiplicata per 4 è : " + backspace + str(series_sum),end='\r')
         series_sum=0
         backspace=""
+        k2=k2+1
 
        
         
