@@ -13,7 +13,7 @@ def SeriesSum():
     series_sum=0
     backspace=""
 
-    while k2<1000000:
+    while k2<1000001:
         while k<k2:
             series_sum=+currterm
             currterm=pow(-1,k+1)/(2*k+1)
