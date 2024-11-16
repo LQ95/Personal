@@ -44,6 +44,6 @@ void TestFrame::OnHello(wxCommandEvent& event){
 }
 
 void TestFrame::OnAbout(wxCommandEvent& event){
-	wxLogMessage("We are God's Children and he left us in a hot car");
+	wxLogMessage("Test over");
 }
 

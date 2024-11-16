@@ -24,13 +24,13 @@ INT WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	WNDCLASS WindClass;
 	WindClass.lpfnWndProc=NULL;
 	WindClass.hInstance=hInstance;
-	WindClass.lpszClassName=TEXT("Fuck");
+	WindClass.lpszClassName=TEXT("Test");
 	WindClass.hbrBackground  = (HBRUSH)GetStockObject(WHITE_BRUSH);
 	RegisterClass(&WindClass);
 	
 	//create and show window
 	HWND Handle=CreateWindow(
-	TEXT("Fuck"),
+	TEXT("Test"),
 	TEXT("Does this work?"),
 	WS_OVERLAPPEDWINDOW,
 	CW_USEDEFAULT, 
